@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Safety | WESHEIR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafaf8;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2B1D14;
+            letter-spacing: 0.05em;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #5C3D2E;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #B96420;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2B1D14 0%, #3d2d1f 100%);
+            color: #F5EFE6;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: #ffffff;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: #2B1D14;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #4a4a4a;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin: 0.75rem 0;
+            color: #4a4a4a;
+        }
+
+        .cas {
+            color: #8B6F47;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* AB 1200 Bilingual Section - Highlight */
+        .ab1200-disclosure {
+            background: #f8f6f3;
+            border-left: 4px solid #B96420;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .ab1200-disclosure h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: #2B1D14;
+            font-weight: 600;
+        }
+
+        .ab1200-disclosure p {
+            margin-bottom: 0.75rem;
+        }
+
+        .disclosure-text {
+            font-weight: 500;
+            color: #2B1D14;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #2B1D14;
+            color: #F5EFE6;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #F5EFE6;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            margin: 1rem 0;
+        }
+
+        .contact a {
+            color: #E9A568;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .contact a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #8B6F47;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav {
+                gap: 1.25rem;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .section {
+                padding: 1.75rem;
+            }
+
+            nav a {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">WESHEIR</div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/products">Products</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Product Safety Information</h1>
+        <p>Transparency and safety are at the heart of everything we make. Learn about the materials in our products and how to care for them.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- California AB 1200 Disclosure (Bilingual) -->
+        <section class="section">
+            <h2>California AB 1200 Chemical Disclosure</h2>
+
+            <div class="ab1200-disclosure">
+                <h3>CA AB 1200 CHEMICAL DISCLOSURE</h3>
+                <p class="disclosure-text">THIS PRODUCT CONTAINS / ESTE PRODUCTO CONTIENE:</p>
+                <p class="disclosure-text">CHROMIUM, NICKEL, IRON, MANGANESE, MOLYBDENUM</p>
+                <p style="margin-top: 1.25rem; font-size: 0.95rem;">
+                    <strong>FOR MORE INFORMATION ABOUT CHEMICALS IN THIS PRODUCT, VISIT:</strong><br>
+                    <strong>PARA MÁS INFORMACIÓN SOBRE LAS SUSTANCIAS QUÍMICAS DE ESTE PRODUCTO, VISITE:</strong><br>
+                    <a href="https://wesheir.com/product-safety" style="color: #B96420;">WESHEIR.COM/PRODUCT-SAFETY</a>
+                </p>
+            </div>
+
+            <p>Our stainless steel cookware and utensils are made from food-grade 18/8 (304) stainless steel. These materials are widely used in food-contact products and meet FDA standards for food safety.</p>
+
+            <h3 style="font-size: 1.125rem; margin-top: 2rem; margin-bottom: 0.75rem; color: #2B1D14;">Material Components (with CAS Numbers):</h3>
+            <ul>
+                <li>Iron (Fe)</li>
+                <li>Chromium (Cr) <span class="cas">CAS 7440-47-3</span></li>
+                <li>Nickel (Ni) <span class="cas">CAS 7440-02-0</span></li>
+                <li>Manganese (Mn) <span class="cas">CAS 7439-96-5</span></li>
+                <li>Molybdenum (Mo) <span class="cas">CAS 7439-98-7</span></li>
+            </ul>
+
+            <p style="margin-top: 1rem; font-style: italic; color: #5C3D2E;">Under normal use, these materials do not pose a health risk.</p>
+        </section>
+
+        <!-- Natural Wood Care -->
+        <section class="section">
+            <h2>Natural Wood Handle Care</h2>
+            <p>Select products in our collection feature natural wood handles. Wood is a natural material with unique grain patterns that adds warmth and beauty to your kitchen.</p>
+
+            <h3 style="font-size: 1.125rem; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #2B1D14;">Care Instructions:</h3>
+            <ul>
+                <li><strong>Hand wash with warm, soapy water</strong></li>
+                <li><strong>Not dishwasher safe</strong> — high heat may damage the wooden handle</li>
+                <li>Dry thoroughly after each use</li>
+                <li>Do not soak in water for extended periods</li>
+                <li>Occasionally treat with food-safe mineral oil to maintain finish</li>
+            </ul>
+
+            <p style="margin-top: 1rem; padding: 1rem; background: #f8f6f3; border-radius: 8px; font-size: 0.95rem;">
+                <strong>Note:</strong> Each wooden handle is individually grained and may vary slightly in color and pattern — this is a natural characteristic of wood.
+            </p>
+        </section>
+
+        <!-- Product Certifications -->
+        <section class="section">
+            <h2>Product Certifications & Compliance</h2>
+            <ul>
+                <li><strong>FDA food-contact compliant materials</strong> — All materials used meet U.S. FDA standards for food safety</li>
+                <li><strong>Quality management systems</strong> — Manufactured in facilities with certified quality control</li>
+                <li><strong>California AB 1200 compliant</strong> — Full material disclosure as required by California law</li>
+                <li><strong>Safe for everyday use</strong> — Rigorously tested for durability and safety</li>
+            </ul>
+        </section>
+
+        <!-- Warranty -->
+        <section class="section">
+            <h2>100% Satisfaction Guarantee</h2>
+            <p>All WESHEIR products are backed by our 100% satisfaction guarantee. We stand behind the quality and craftsmanship of every item we make.</p>
+            <p>If you have any questions, concerns, or warranty claims, please don't hesitate to contact us. We're here to help.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p><strong>WESHEIR</strong></p>
+                <p>Distributed by TF International Corp.</p>
+                <p>1320 W. Blancke Street, Linden, NJ 07036</p>
+                <p style="margin-top: 1.5rem;">
+                    <a href="mailto:info@wesheir.com">info@wesheir.com</a><br>
+                    <a href="https://wesheir.com">wesheir.com</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 WESHEIR. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
