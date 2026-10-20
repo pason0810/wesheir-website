@@ -6,38 +6,24 @@
     <title>Product Safety | WESHEIR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Light surface layers */
-            --surface-0: #FFFFFF;
-            --surface-1: #FAFAF7;
-            --surface-2: #F5F0EB;
-            --surface-3: #EDE7E0;
-            --surface-4: #E5DDD4;
+            --ws-black: #000000;
+            --ws-espresso: #2E1914;
+            --ws-copper: #854738;
+            --ws-bronze: #785E2D;
+            --ws-honey: #E1B971;
+            --ws-sage: #BFB695;
+            --ws-sand: #C4AE82;
+            --ws-cream: #F9F5EA;
 
-            /* Accent — warm copper and sage */
-            --accent-primary: #8B5E3C;
-            --accent-primary-hover: #6B4A2C;
-            --accent-secondary: #D4915E;
-
-            /* Supporting tint */
-            --tint-sage: #6DB544;
-            --tint-sage-light: #E8F4E1;
-
-            /* Type */
-            --text-primary: #2C2420;
-            --text-secondary: #3D3530;
-            --text-tertiary: #6B5F54;
-
-            /* Spacing */
             --sp-xs: clamp(0.5rem, 1.5vw, 0.75rem);
             --sp-sm: clamp(0.75rem, 2vw, 1rem);
             --sp-md: clamp(1.5rem, 4vw, 2.5rem);
             --sp-lg: clamp(2.5rem, 6vw, 4rem);
             --sp-xl: clamp(4rem, 10vw, 7rem);
 
-            /* Type scale */
             --t-xs: clamp(0.875rem, 1.8vw, 0.9375rem);
             --t-sm: clamp(1rem, 2.2vw, 1.125rem);
             --t-base: clamp(1.125rem, 2.6vw, 1.25rem);
@@ -45,18 +31,14 @@
             --t-xl: clamp(1.875rem, 4.5vw, 2.75rem);
             --t-display: clamp(2.75rem, 7vw, 5rem);
 
-            /* Fonts */
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
-            /* Geometry */
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-pill: 999px;
+            --radius-sm: 0;
+            --radius-md: 0;
+            --radius-pill: 0;
 
-            /* Shadow */
-            --shadow-sm: 0 2px 8px rgba(139, 94, 60, 0.08);
-            --shadow-md: 0 4px 16px rgba(139, 94, 60, 0.12);
+            --shadow-sm: 0 2px 8px rgba(133, 71, 56, 0.08);
+            --shadow-md: 0 4px 16px rgba(133, 71, 56, 0.12);
         }
 
         * {
@@ -71,8 +53,8 @@
 
         body {
             font-family: var(--font-sans);
-            color: var(--text-secondary);
-            background: var(--surface-0);
+            color: var(--ws-espresso);
+            background: var(--ws-cream);
             line-height: 1.65;
         }
 
@@ -81,9 +63,9 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(249, 245, 234, 0.95);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+            border-bottom: 1px solid rgba(133, 71, 56, 0.1);
             z-index: 100;
         }
 
@@ -97,7 +79,7 @@
         }
 
         .logo img {
-            height: 32px;
+            height: 40px;
             width: auto;
         }
 
@@ -109,9 +91,11 @@
 
         .nav-links a {
             font-size: var(--t-sm);
-            font-weight: 500;
-            color: var(--text-secondary);
+            font-weight: 400;
+            color: var(--ws-espresso);
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             position: relative;
             transition: color 0.3s;
         }
@@ -123,12 +107,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-primary);
+            background: var(--ws-copper);
             transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-primary);
+            color: var(--ws-copper);
         }
 
         .nav-links a:hover::after {
@@ -138,21 +122,25 @@
         /* Hero */
         .hero {
             margin-top: 80px;
-            background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface-1) 100%);
+            background: var(--ws-sand);
             padding: var(--sp-xl) var(--sp-md);
             text-align: center;
         }
 
         .hero h1 {
-            font-family: var(--font-serif);
+            font-family: var(--font-sans);
             font-size: var(--t-display);
-            color: var(--text-primary);
+            font-weight: 200;
+            color: var(--ws-black);
             margin-bottom: var(--sp-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         .hero p {
             font-size: var(--t-base);
-            color: var(--text-tertiary);
+            font-weight: 300;
+            color: var(--ws-espresso);
             max-width: 700px;
             margin: 0 auto;
         }
@@ -165,7 +153,7 @@
         }
 
         .section {
-            background: var(--surface-0);
+            background: var(--ws-cream);
             padding: var(--sp-lg);
             margin-bottom: var(--sp-md);
             border-radius: var(--radius-md);
@@ -173,21 +161,24 @@
         }
 
         .section h2 {
-            font-family: var(--font-serif);
+            font-family: var(--font-sans);
             font-size: var(--t-xl);
-            color: var(--text-primary);
+            font-weight: 300;
+            color: var(--ws-black);
             margin-bottom: var(--sp-sm);
         }
 
         .section h3 {
-            font-family: var(--font-serif);
+            font-family: var(--font-sans);
             font-size: var(--t-lg);
-            color: var(--text-primary);
+            font-weight: 600;
+            color: var(--ws-black);
             margin: var(--sp-sm) 0 var(--sp-xs);
         }
 
         .section p {
             font-size: var(--t-sm);
+            font-weight: 400;
             margin-bottom: var(--sp-xs);
             line-height: 1.7;
         }
@@ -200,18 +191,19 @@
         li {
             margin: var(--sp-xs) 0;
             font-size: var(--t-sm);
+            font-weight: 400;
         }
 
         .cas {
-            color: var(--accent-primary);
+            color: var(--ws-copper);
             font-size: var(--t-xs);
             font-weight: 600;
         }
 
         /* AB 1200 Disclosure */
         .ab1200-disclosure {
-            background: var(--tint-sage-light);
-            border-left: 4px solid var(--tint-sage);
+            background: var(--ws-sand);
+            border-left: 4px solid var(--ws-copper);
             padding: var(--sp-md);
             margin: var(--sp-md) 0;
             border-radius: var(--radius-sm);
@@ -219,22 +211,23 @@
 
         .ab1200-disclosure h3 {
             font-size: var(--t-lg);
+            font-weight: 600;
             margin-bottom: var(--sp-xs);
         }
 
         .disclosure-text {
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--ws-black);
         }
 
         .ab1200-disclosure a {
-            color: var(--accent-primary);
+            color: var(--ws-copper);
             font-weight: 600;
         }
 
         /* Note Box */
         .note-box {
-            background: var(--surface-2);
+            background: var(--ws-sand);
             padding: var(--sp-sm);
             border-radius: var(--radius-sm);
             font-size: var(--t-sm);
@@ -243,20 +236,21 @@
 
         /* Contact Section */
         .contact {
-            background: var(--accent-primary);
-            color: var(--surface-0);
+            background: var(--ws-copper);
+            color: var(--ws-cream);
             padding: var(--sp-lg);
             border-radius: var(--radius-md);
             text-align: center;
         }
 
         .contact h2 {
-            color: var(--surface-0);
+            font-weight: 300;
+            color: var(--ws-cream);
             margin-bottom: var(--sp-sm);
         }
 
         .contact a {
-            color: var(--accent-secondary);
+            color: var(--ws-honey);
             text-decoration: none;
             transition: opacity 0.3s;
         }
@@ -267,9 +261,10 @@
 
         /* Footer */
         footer {
+            background: var(--ws-espresso);
             text-align: center;
             padding: var(--sp-lg) var(--sp-md);
-            color: var(--text-tertiary);
+            color: var(--ws-sand);
             font-size: var(--t-xs);
         }
 
@@ -289,7 +284,7 @@
     <header>
         <nav>
             <a href="/" class="logo">
-                <img src="assets/img/logo-dark.png" alt="WESHEIR">
+                <img src="assets/img/logo-wesheir-espresso.svg" alt="WESHEIR">
             </a>
             <div class="nav-links">
                 <a href="/">Home</a>

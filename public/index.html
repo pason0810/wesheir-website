@@ -6,29 +6,38 @@
     <title>WESHEIR - Share Every Moment at Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Light surface layers */
-            --surface-0: #FFFFFF;
-            --surface-1: #FAFAF7;
-            --surface-2: #F5F0EB;
-            --surface-3: #EDE7E0;
-            --surface-4: #E5DDD4;
+            /* WESHEIR 视觉规范（设计3 示意版）色板 */
+            --ws-black:    #000000;
+            --ws-espresso: #2E1914;
+            --ws-copper:   #854738;
+            --ws-bronze:   #785E2D;
+            --ws-honey:    #E1B971;
+            --ws-sage:     #BFB695;
+            --ws-sand:     #C4AE82;
+            --ws-cream:    #F9F5EA;
 
-            /* Accent — warm copper and sage */
-            --accent-primary: #8B5E3C;
-            --accent-primary-hover: #6B4A2C;
-            --accent-secondary: #D4915E;
+            /* Surface layers */
+            --surface-0: var(--ws-cream);
+            --surface-1: var(--ws-sand);
+            --surface-2: #EFE8D8;
+            --surface-3: #E4D9C3;
+            --surface-4: #D6C7A8;
 
-            /* Supporting tint */
-            --tint-sage: #6DB544;
-            --tint-sage-light: #E8F4E1;
+            /* Accent — copper */
+            --accent-primary: var(--ws-copper);
+            --accent-primary-hover: #6B3A2D;
 
             /* Type */
-            --text-primary: #2C2420;
-            --text-secondary: #3D3530;
-            --text-tertiary: #6B5F54;
+            --text-primary: var(--ws-espresso);
+            --text-secondary: var(--ws-black);
+            --text-tertiary: var(--ws-bronze);
+
+            /* Stripes: 条高 h，间隙 g ≈ 0.45h */
+            --stripe-h: 8px;
+            --stripe-g: 4px;
 
             /* Spacing — fluid clamp */
             --sp-xs: clamp(0.5rem, 1.5vw, 0.75rem);
@@ -45,20 +54,59 @@
             --t-xl: clamp(1.875rem, 4.5vw, 2.75rem);
             --t-display: clamp(2.75rem, 7vw, 5rem);
 
-            /* Fonts */
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            /* Fonts — 全站 Montserrat */
+            --font-serif: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
-            /* Geometry */
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-pill: 999px;
+            /* Geometry — 方正，贴近包装稿 */
+            --radius-sm: 0;
+            --radius-md: 0;
+            --radius-pill: 0;
             --radius-circle: 50%;
 
-            /* Shadow — soft natural shadows */
-            --shadow-sm: 0 2px 8px rgba(139, 94, 60, 0.08);
-            --shadow-md: 0 4px 16px rgba(139, 94, 60, 0.12);
-            --shadow-lg: 0 8px 32px rgba(139, 94, 60, 0.16);
+            /* Shadow — 很轻，只做层次 */
+            --shadow-sm: 0 1px 4px rgba(46, 25, 20, 0.06);
+            --shadow-md: 0 4px 14px rgba(46, 25, 20, 0.08);
+            --shadow-lg: 0 10px 28px rgba(46, 25, 20, 0.12);
+        }
+
+        /* 六色条纹：沙色 → 鼠尾草卡其 → 蜂蜜金 → 古铜 → 深咖 → 铜棕 */
+        .ws-stripes {
+            --p: calc(var(--stripe-h) + var(--stripe-g));
+            display: block;
+            width: 100%;
+            height: calc(var(--p) * 6 - var(--stripe-g));
+            background: linear-gradient(to bottom,
+                var(--ws-sand)     0                                         var(--stripe-h),
+                transparent        var(--stripe-h)                           var(--p),
+                var(--ws-sage)     var(--p)                                  calc(var(--p) + var(--stripe-h)),
+                transparent        calc(var(--p) + var(--stripe-h))          calc(var(--p) * 2),
+                var(--ws-honey)    calc(var(--p) * 2)                        calc(var(--p) * 2 + var(--stripe-h)),
+                transparent        calc(var(--p) * 2 + var(--stripe-h))      calc(var(--p) * 3),
+                var(--ws-bronze)   calc(var(--p) * 3)                        calc(var(--p) * 3 + var(--stripe-h)),
+                transparent        calc(var(--p) * 3 + var(--stripe-h))      calc(var(--p) * 4),
+                var(--ws-espresso) calc(var(--p) * 4)                        calc(var(--p) * 4 + var(--stripe-h)),
+                transparent        calc(var(--p) * 4 + var(--stripe-h))      calc(var(--p) * 5),
+                var(--ws-copper)   calc(var(--p) * 5)                        100%);
+        }
+
+        /* 小号条纹：产品卡底部 */
+        .ws-stripes--sm {
+            --stripe-h: 5px;
+            --stripe-g: 2px;
+        }
+
+        /* 撞色规则（建议版）：铜棕底上去掉铜棕那一条，剩 5 条 */
+        .ws-stripes--on-copper {
+            height: calc(var(--p) * 5 - var(--stripe-g));
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-primary);
         }
 
         * {
@@ -84,15 +132,15 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(249, 245, 234, 0.95);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+            border-bottom: 1px solid rgba(46, 25, 20, 0.1);
             z-index: 100;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(249, 245, 234, 0.98);
             box-shadow: var(--shadow-sm);
         }
 
@@ -113,7 +161,7 @@
         }
 
         .logo img {
-            height: 32px;
+            height: 40px; /* SVG 自带 1/4 字高留白 */
             width: auto;
             transition: opacity 0.2s;
         }
@@ -131,10 +179,11 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-tertiary);
-            font-size: var(--t-sm);
-            font-weight: 500;
-            letter-spacing: 0.01em;
+            color: var(--text-primary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
             transition: color 0.2s;
             position: relative;
         }
@@ -151,7 +200,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--accent-primary);
         }
 
         .nav-links a:hover::after {
@@ -160,8 +209,8 @@
 
         .nav-cta {
             background: var(--accent-primary);
-            color: #FFFFFF !important;
-            padding: 0.625rem 1.75rem;
+            color: var(--ws-cream) !important;
+            padding: 0.75rem 1.75rem;
             border-radius: var(--radius-pill);
             font-weight: 600;
             transition: all 0.2s;
@@ -185,26 +234,16 @@
             min-height: 90vh;
             display: grid;
             align-items: center;
-            background: linear-gradient(135deg, var(--surface-0) 0%, var(--surface-1) 100%);
+            background: var(--surface-0);
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        /* Hero 底部六色条纹，左右撑满 */
+        .hero > .ws-stripes {
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(139, 94, 60, 0.06) 0%, transparent 70%);
-            border-radius: var(--radius-circle);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-50px, 30px) scale(1.1); }
+            left: 0;
+            bottom: 0;
         }
 
         .hero-container {
@@ -219,22 +258,26 @@
             z-index: 1;
         }
 
+        .hero-content .eyebrow {
+            display: block;
+            margin-bottom: var(--sp-sm);
+        }
+
         .hero-content h1 {
             font-family: var(--font-serif);
             font-size: var(--t-display);
-            font-weight: 700;
+            font-weight: 200;
             color: var(--text-primary);
             line-height: 1.1;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             margin-bottom: var(--sp-sm);
         }
 
         .hero-tagline {
-            font-family: var(--font-serif);
+            font-family: var(--font-sans);
             font-size: var(--t-lg);
             color: var(--accent-primary);
-            font-weight: 600;
-            font-style: italic;
+            font-weight: 400;
             margin-bottom: var(--sp-md);
         }
 
@@ -254,8 +297,10 @@
         .btn {
             padding: 1rem 2.25rem;
             border-radius: var(--radius-pill);
-            font-size: var(--t-sm);
+            font-size: 0.875rem;
             font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
@@ -290,7 +335,7 @@
 
         .btn-primary {
             background: var(--accent-primary);
-            color: #FFFFFF;
+            color: var(--ws-cream);
             box-shadow: var(--shadow-md);
         }
 
@@ -303,13 +348,13 @@
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
-            border: 2px solid var(--surface-4);
+            border: 1px solid var(--text-primary);
         }
 
         .btn-secondary:hover {
             border-color: var(--accent-primary);
             color: var(--accent-primary);
-            background: var(--surface-1);
+            background: var(--surface-2);
         }
 
         .hero-image {
@@ -321,9 +366,6 @@
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .hero-image:hover {
-            transform: scale(1.02) rotate(1deg);
-        }
 
         .hero-image img {
             width: 100%;
@@ -348,15 +390,15 @@
         .section-title {
             font-family: var(--font-serif);
             font-size: var(--t-xl);
-            font-weight: 700;
+            font-weight: 300;
             color: var(--text-primary);
             margin-bottom: var(--sp-xs);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
 
         .section-subtitle {
             font-size: var(--t-base);
-            color: var(--text-secondary);
+            color: var(--text-primary);
             font-weight: 400;
         }
 
@@ -368,47 +410,39 @@
             gap: var(--sp-lg);
         }
 
+        /* 产品卡：奶白 / 铜棕竖卡，结构 = 品类大字 → 图 → 文案 → 底部条纹 */
         .product-card {
-            background: var(--surface-0);
-            border-radius: var(--radius-md);
+            background: var(--ws-cream);
             overflow: hidden;
             text-decoration: none;
-            color: inherit;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--surface-3);
+            color: var(--ws-black);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
             position: relative;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius-md);
-            padding: 2px;
-            background: linear-gradient(135deg, var(--accent-primary), var(--tint-sage));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .product-card:hover::before {
-            opacity: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-12px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
-            border-color: transparent;
+        }
+
+        .product-card-category {
+            font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+            font-weight: 200;
+            text-transform: lowercase;
+            letter-spacing: -0.01em;
+            line-height: 1;
+            color: var(--ws-black);
+            padding: var(--sp-md) var(--sp-md) var(--sp-sm);
         }
 
         .product-card-image {
-            aspect-ratio: 2/3;
+            aspect-ratio: 4/5;
             overflow: hidden;
             position: relative;
             background: var(--surface-2);
+            margin: 0 var(--sp-md);
         }
 
         .product-card-image img {
@@ -420,38 +454,57 @@
         }
 
         .product-card:hover .product-card-image img {
-            transform: scale(1.08);
+            transform: scale(1.04);
         }
 
         .product-card-content {
             padding: var(--sp-md);
+            flex: 1;
         }
 
-        .product-card-title {
-            font-family: var(--font-serif);
-            font-size: var(--t-lg);
-            font-weight: 700;
-            color: var(--text-primary);
+        .product-card-subtitle {
+            font-size: var(--t-sm);
+            font-weight: 400;
+            color: var(--ws-copper);
             margin-bottom: var(--sp-xs);
         }
 
         .product-card-description {
-            font-size: var(--t-sm);
-            color: var(--text-secondary);
+            font-size: var(--t-xs);
+            color: inherit;
             line-height: 1.7;
             font-weight: 400;
         }
 
+        .product-card-spec {
+            display: block;
+            margin-top: var(--sp-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         .product-card-tag {
             display: inline-block;
-            background: var(--tint-sage-light);
-            color: var(--tint-sage);
-            padding: 0.35rem 0.875rem;
-            border-radius: var(--radius-pill);
-            font-size: var(--t-xs);
-            font-weight: 700;
-            margin-top: var(--sp-xs);
-            letter-spacing: 0.03em;
+            border: 1px solid currentColor;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: var(--sp-xs);
+        }
+
+        /* 铜棕卡：奶白字，条纹去掉铜棕那一条 */
+        .product-card--copper {
+            background: var(--ws-copper);
+            color: var(--ws-cream);
+        }
+
+        .product-card--copper .product-card-category,
+        .product-card--copper .product-card-subtitle {
+            color: var(--ws-cream);
         }
 
         /* Brand Story */
@@ -477,13 +530,6 @@
             position: relative;
         }
 
-        .brand-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(139, 94, 60, 0.1), transparent 60%);
-            pointer-events: none;
-        }
 
         .brand-image img {
             width: 100%;
@@ -492,10 +538,15 @@
             display: block;
         }
 
+        .brand-content .eyebrow {
+            display: block;
+            margin-bottom: var(--sp-sm);
+        }
+
         .brand-content h2 {
             font-family: var(--font-serif);
             font-size: var(--t-xl);
-            font-weight: 700;
+            font-weight: 300;
             color: var(--text-primary);
             margin-bottom: var(--sp-md);
             letter-spacing: -0.02em;
@@ -517,27 +568,10 @@
         /* CTA Section */
         .cta-section {
             padding: var(--sp-xl) var(--sp-md);
-            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-hover) 100%);
+            background: var(--ws-copper);
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            left: -200px;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-circle);
-            animation: float-cta 25s ease-in-out infinite;
-        }
-
-        @keyframes float-cta {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(100px, 50px); }
         }
 
         .cta-container {
@@ -550,15 +584,15 @@
         .cta-section h2 {
             font-family: var(--font-serif);
             font-size: var(--t-xl);
-            font-weight: 700;
-            color: #FFFFFF;
+            font-weight: 300;
+            color: var(--ws-cream);
             margin-bottom: var(--sp-sm);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
 
         .cta-section p {
             font-size: var(--t-base);
-            color: rgba(255, 255, 255, 0.95);
+            color: var(--ws-cream);
             margin-bottom: var(--sp-lg);
             line-height: 1.75;
             font-weight: 400;
@@ -571,34 +605,32 @@
         }
 
         .btn-white {
-            background: #FFFFFF;
-            color: var(--accent-primary);
+            background: var(--ws-cream);
+            color: var(--ws-copper);
             box-shadow: var(--shadow-md);
         }
 
         .btn-white:hover {
-            background: var(--surface-1);
+            background: var(--surface-2);
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
 
         .btn-outline-white {
             background: transparent;
-            color: #FFFFFF;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: var(--ws-cream);
+            border: 1px solid var(--ws-cream);
         }
 
         .btn-outline-white:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #FFFFFF;
+            background: rgba(249, 245, 234, 0.12);
         }
 
         /* Footer */
         footer {
-            background: var(--surface-2);
-            color: var(--text-tertiary);
+            background: var(--ws-espresso);
+            color: var(--ws-sand);
             padding: var(--sp-lg) var(--sp-md);
-            border-top: 1px solid var(--surface-4);
         }
 
         .footer-container {
@@ -609,12 +641,11 @@
             gap: var(--sp-lg);
         }
 
-        .footer-brand h3 {
-            font-family: var(--font-serif);
-            font-size: var(--t-lg);
-            font-weight: 700;
-            margin-bottom: var(--sp-sm);
-            color: var(--text-primary);
+        .footer-brand img {
+            height: 48px;
+            width: auto;
+            display: block;
+            margin: 0 0 var(--sp-xs) -12px; /* 抵消 SVG 左侧留白 */
         }
 
         .footer-brand p {
@@ -629,8 +660,8 @@
             font-weight: 700;
             margin-bottom: var(--sp-sm);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-primary);
+            letter-spacing: 0.14em;
+            color: var(--ws-cream);
         }
 
         .footer-col ul {
@@ -642,7 +673,7 @@
         }
 
         .footer-col a {
-            color: var(--text-tertiary);
+            color: var(--ws-sand);
             text-decoration: none;
             font-size: var(--t-sm);
             transition: color 0.2s;
@@ -650,14 +681,18 @@
         }
 
         .footer-col a:hover {
-            color: var(--accent-primary);
+            color: var(--ws-honey);
+        }
+
+        .footer-col li {
+            font-size: var(--t-sm);
         }
 
         .footer-bottom {
             max-width: 1400px;
             margin: var(--sp-md) auto 0;
             padding-top: var(--sp-md);
-            border-top: 1px solid var(--surface-4);
+            border-top: 1px solid rgba(196, 174, 130, 0.25);
             text-align: center;
             font-size: var(--t-xs);
             opacity: 0.8;
@@ -696,6 +731,19 @@
                 order: -1;
                 max-height: 60vh;
             }
+
+            :root {
+                --stripe-h: 6px;
+                --stripe-g: 3px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+            html { scroll-behavior: auto; }
         }
     </style>
 </head>
@@ -704,7 +752,7 @@
     <header id="header">
         <nav>
             <a href="/" class="logo">
-                <img src="assets/img/logo-dark.png" alt="WESHEIR">
+                <img src="assets/img/logo-wesheir-espresso.svg" alt="WESHEIR">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -719,6 +767,7 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
+                <span class="eyebrow">Kitchen · Drinkware · Titanium</span>
                 <h1>Quality Kitchenware for Modern Living</h1>
                 <p class="hero-tagline">Share Every Moment at Home</p>
                 <p class="hero-description">
@@ -735,6 +784,7 @@
                 <img src="assets/img/v2-hero.png" alt="WESHEIR Kitchen">
             </div>
         </div>
+        <span class="ws-stripes" aria-hidden="true"></span>
     </section>
 
     <!-- Product Lines -->
@@ -745,43 +795,52 @@
         </div>
         <div class="product-grid">
             <a href="#kitchen" class="product-card">
+                <h3 class="product-card-category">kitchen</h3>
                 <div class="product-card-image">
-                    <img src="assets/img/v2-card-kitchen.png" alt="Kitchen Products">
+                    <img src="assets/img/v2-card-kitchen.png" alt="WESHEIR stainless steel kitchen tools">
                 </div>
                 <div class="product-card-content">
-                    <h3 class="product-card-title">Kitchen</h3>
+                    <p class="product-card-subtitle">Tools and cookware for everyday cooking</p>
                     <p class="product-card-description">
                         Stainless steel utensils, cookware, and tools. Durable construction with
                         natural wood or steel handles. Perfect for everyday use.
                     </p>
+                    <span class="product-card-spec">Stainless Steel</span>
                 </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
             </a>
 
             <a href="#drinkware" class="product-card">
+                <h3 class="product-card-category">drinkware</h3>
                 <div class="product-card-image">
-                    <img src="assets/img/v2-card-drinkware.png" alt="Drinkware">
+                    <img src="assets/img/v2-card-drinkware.png" alt="WESHEIR insulated stainless steel drinkware">
                 </div>
                 <div class="product-card-content">
-                    <h3 class="product-card-title">Drinkware</h3>
+                    <p class="product-card-subtitle">Insulated bottles, tumblers and cups</p>
                     <p class="product-card-description">
                         Double-wall insulated stainless steel bottles, tumblers, and cups.
                         Keep beverages hot or cold for hours. Multiple sizes and colors available.
                     </p>
+                    <span class="product-card-spec">Double-Wall Insulated</span>
                 </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
             </a>
 
-            <a href="#titanium" class="product-card">
+            <a href="#titanium" class="product-card product-card--copper">
+                <h3 class="product-card-category">titanium</h3>
                 <div class="product-card-image">
-                    <img src="assets/img/v2-card-titanium.png" alt="Titanium Products">
+                    <img src="assets/img/v2-card-titanium.png" alt="WESHEIR pure titanium drinkware and utensils">
                 </div>
                 <div class="product-card-content">
-                    <h3 class="product-card-title">Titanium</h3>
                     <span class="product-card-tag">Premium Line</span>
+                    <p class="product-card-subtitle">Pure titanium, ultra-lightweight</p>
                     <p class="product-card-description">
                         Ultra-lightweight pure titanium drinkware and utensils. Corrosion-resistant,
                         non-toxic, and exceptionally durable. Premium positioning for specialty retail.
                     </p>
+                    <span class="product-card-spec">Pure Titanium</span>
                 </div>
+                <span class="ws-stripes ws-stripes--sm ws-stripes--on-copper" aria-hidden="true"></span>
             </a>
         </div>
     </section>
@@ -793,6 +852,7 @@
                 <img src="assets/img/v2-brand-story.png" alt="WESHEIR Brand Story">
             </div>
             <div class="brand-content">
+                <span class="eyebrow">Our Story</span>
                 <h2>Built on Experience, Designed for Life</h2>
                 <p>
                     With over 40 years of manufacturing expertise, we've built WESHEIR on a simple
@@ -829,7 +889,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <h3>WESHEIR</h3>
+                <img src="assets/img/logo-wesheir-white.svg" alt="WESHEIR">
                 <p>Share Every Moment at Home</p>
             </div>
 

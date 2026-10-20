@@ -6,24 +6,17 @@
     <title>Custom Products | WESHEIR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --surface-0: #FFFFFF;
-            --surface-1: #FAFAF7;
-            --surface-2: #F5F0EB;
-            --surface-3: #EDE7E0;
-
-            --accent-primary: #8B5E3C;
-            --accent-primary-hover: #6B4A2C;
-            --accent-secondary: #D4915E;
-
-            --tint-sage: #6DB544;
-            --tint-sage-light: #E8F4E1;
-
-            --text-primary: #2C2420;
-            --text-secondary: #3D3530;
-            --text-tertiary: #6B5F54;
+            --ws-black: #000000;
+            --ws-espresso: #2E1914;
+            --ws-copper: #854738;
+            --ws-bronze: #785E2D;
+            --ws-honey: #E1B971;
+            --ws-sage: #BFB695;
+            --ws-sand: #C4AE82;
+            --ws-cream: #F9F5EA;
 
             --sp-xs: clamp(0.5rem, 1.5vw, 0.75rem);
             --sp-sm: clamp(0.75rem, 2vw, 1rem);
@@ -38,16 +31,16 @@
             --t-xl: clamp(1.875rem, 4.5vw, 2.75rem);
             --t-display: clamp(2.75rem, 7vw, 5rem);
 
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            --ws-font: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-pill: 999px;
+            --radius-sm: 0;
+            --radius-md: 0;
+            --radius-pill: 0;
 
-            --shadow-sm: 0 2px 8px rgba(139, 94, 60, 0.08);
-            --shadow-md: 0 4px 16px rgba(139, 94, 60, 0.12);
-            --shadow-lg: 0 8px 32px rgba(139, 94, 60, 0.16);
+            --shadow-sm: 0 2px 8px rgba(133, 71, 56, 0.08);
+            --shadow-md: 0 4px 16px rgba(133, 71, 56, 0.12);
+            --shadow-lg: 0 8px 32px rgba(133, 71, 56, 0.16);
         }
 
         * {
@@ -61,9 +54,9 @@
         }
 
         body {
-            font-family: var(--font-sans);
-            color: var(--text-secondary);
-            background: var(--surface-0);
+            font-family: var(--ws-font);
+            color: var(--ws-espresso);
+            background: var(--ws-cream);
             line-height: 1.65;
         }
 
@@ -72,9 +65,9 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(249, 245, 234, 0.95);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+            border-bottom: 1px solid rgba(133, 71, 56, 0.1);
             z-index: 100;
         }
 
@@ -88,7 +81,7 @@
         }
 
         .logo img {
-            height: 32px;
+            height: 40px;
             width: auto;
         }
 
@@ -100,9 +93,11 @@
 
         .nav-links a {
             font-size: var(--t-sm);
-            font-weight: 500;
-            color: var(--text-secondary);
+            font-weight: 400;
+            color: var(--ws-espresso);
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             position: relative;
             transition: color 0.3s;
         }
@@ -114,12 +109,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-primary);
+            background: var(--ws-copper);
             transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-primary);
+            color: var(--ws-copper);
         }
 
         .nav-links a:hover::after {
@@ -127,17 +122,19 @@
         }
 
         .btn-contact {
-            background: var(--accent-primary);
-            color: var(--surface-0);
+            background: var(--ws-copper);
+            color: var(--ws-cream);
             padding: var(--sp-xs) var(--sp-md);
             border-radius: var(--radius-pill);
             text-decoration: none;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             transition: all 0.3s;
         }
 
         .btn-contact:hover {
-            background: var(--accent-primary-hover);
+            background: var(--ws-espresso);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
@@ -149,39 +146,45 @@
         /* Hero */
         .hero {
             margin-top: 80px;
-            background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface-1) 100%);
+            background: var(--ws-sand);
             padding: var(--sp-xl) var(--sp-md);
             text-align: center;
         }
 
         .hero h1 {
-            font-family: var(--font-serif);
+            font-family: var(--ws-font);
             font-size: var(--t-display);
-            color: var(--text-primary);
+            font-weight: 200;
+            color: var(--ws-black);
             margin-bottom: var(--sp-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         .hero p {
             font-size: var(--t-lg);
-            color: var(--text-tertiary);
+            font-weight: 300;
+            color: var(--ws-espresso);
             max-width: 800px;
             margin: 0 auto var(--sp-md);
         }
 
         .hero-cta {
             display: inline-block;
-            background: var(--accent-primary);
-            color: var(--surface-0);
+            background: var(--ws-copper);
+            color: var(--ws-cream);
             padding: var(--sp-sm) var(--sp-lg);
             border-radius: var(--radius-pill);
             text-decoration: none;
             font-weight: 600;
             font-size: var(--t-base);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             transition: all 0.3s;
         }
 
         .hero-cta:hover {
-            background: var(--accent-primary-hover);
+            background: var(--ws-espresso);
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
@@ -200,14 +203,16 @@
         }
 
         .intro h2 {
-            font-family: var(--font-serif);
+            font-family: var(--ws-font);
             font-size: var(--t-xl);
-            color: var(--text-primary);
+            font-weight: 300;
+            color: var(--ws-black);
             margin-bottom: var(--sp-sm);
         }
 
         .intro p {
             font-size: var(--t-base);
+            font-weight: 400;
             line-height: 1.7;
         }
 
@@ -220,7 +225,7 @@
         }
 
         .category-card {
-            background: var(--surface-0);
+            background: var(--ws-cream);
             padding: var(--sp-lg);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
@@ -235,7 +240,7 @@
         .category-icon {
             width: 60px;
             height: 60px;
-            background: var(--tint-sage-light);
+            background: var(--ws-sand);
             border-radius: var(--radius-pill);
             display: flex;
             align-items: center;
@@ -245,30 +250,33 @@
         }
 
         .category-card h3 {
-            font-family: var(--font-serif);
+            font-family: var(--ws-font);
             font-size: var(--t-lg);
-            color: var(--text-primary);
+            font-weight: 300;
+            color: var(--ws-black);
             margin-bottom: var(--sp-xs);
         }
 
         .category-card p {
             font-size: var(--t-sm);
-            color: var(--text-tertiary);
+            font-weight: 400;
+            color: var(--ws-espresso);
             line-height: 1.6;
         }
 
         /* Process Section */
         .process {
-            background: var(--surface-1);
+            background: var(--ws-sand);
             padding: var(--sp-xl) var(--sp-md);
             border-radius: var(--radius-md);
             margin-bottom: var(--sp-xl);
         }
 
         .process h2 {
-            font-family: var(--font-serif);
+            font-family: var(--ws-font);
             font-size: var(--t-xl);
-            color: var(--text-primary);
+            font-weight: 300;
+            color: var(--ws-black);
             text-align: center;
             margin-bottom: var(--sp-lg);
         }
@@ -286,8 +294,8 @@
         .step-number {
             width: 50px;
             height: 50px;
-            background: var(--accent-primary);
-            color: var(--surface-0);
+            background: var(--ws-copper);
+            color: var(--ws-cream);
             border-radius: var(--radius-pill);
             display: flex;
             align-items: center;
@@ -298,54 +306,60 @@
         }
 
         .step h3 {
-            font-family: var(--font-serif);
+            font-family: var(--ws-font);
             font-size: var(--t-base);
-            color: var(--text-primary);
+            font-weight: 600;
+            color: var(--ws-black);
             margin-bottom: var(--sp-xs);
         }
 
         .step p {
             font-size: var(--t-sm);
-            color: var(--text-tertiary);
+            font-weight: 400;
+            color: var(--ws-espresso);
         }
 
         /* MOQ Section */
         .moq-notice {
-            background: var(--tint-sage-light);
-            border-left: 4px solid var(--tint-sage);
+            background: var(--ws-sand);
+            border-left: 4px solid var(--ws-copper);
             padding: var(--sp-md);
             border-radius: var(--radius-sm);
             margin-bottom: var(--sp-xl);
         }
 
         .moq-notice h3 {
-            font-family: var(--font-serif);
+            font-family: var(--ws-font);
             font-size: var(--t-lg);
-            color: var(--text-primary);
+            font-weight: 600;
+            color: var(--ws-black);
             margin-bottom: var(--sp-xs);
         }
 
         .moq-notice p {
             font-size: var(--t-sm);
+            font-weight: 400;
         }
 
         /* CTA Section */
         .cta-section {
-            background: var(--accent-primary);
-            color: var(--surface-0);
+            background: var(--ws-copper);
+            color: var(--ws-cream);
             padding: var(--sp-xl) var(--sp-md);
             border-radius: var(--radius-md);
             text-align: center;
         }
 
         .cta-section h2 {
-            font-family: var(--font-serif);
+            font-family: var(--ws-font);
             font-size: var(--t-xl);
+            font-weight: 300;
             margin-bottom: var(--sp-sm);
         }
 
         .cta-section p {
             font-size: var(--t-base);
+            font-weight: 300;
             margin-bottom: var(--sp-md);
             opacity: 0.95;
         }
@@ -358,12 +372,14 @@
         }
 
         .btn-primary {
-            background: var(--surface-0);
-            color: var(--accent-primary);
+            background: var(--ws-cream);
+            color: var(--ws-copper);
             padding: var(--sp-sm) var(--sp-lg);
             border-radius: var(--radius-pill);
             text-decoration: none;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             transition: all 0.3s;
         }
 
@@ -374,25 +390,28 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--surface-0);
-            border: 2px solid var(--surface-0);
+            color: var(--ws-cream);
+            border: 2px solid var(--ws-cream);
             padding: var(--sp-sm) var(--sp-lg);
             border-radius: var(--radius-pill);
             text-decoration: none;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             transition: all 0.3s;
         }
 
         .btn-secondary:hover {
-            background: var(--surface-0);
-            color: var(--accent-primary);
+            background: var(--ws-cream);
+            color: var(--ws-copper);
         }
 
         /* Footer */
         footer {
+            background: var(--ws-espresso);
             text-align: center;
             padding: var(--sp-lg) var(--sp-md);
-            color: var(--text-tertiary);
+            color: var(--ws-sand);
             font-size: var(--t-xs);
         }
 
@@ -421,7 +440,7 @@
     <header>
         <nav>
             <a href="/" class="logo">
-                <img src="assets/img/logo-dark.png" alt="WESHEIR">
+                <img src="assets/img/logo-wesheir-espresso.svg" alt="WESHEIR">
             </a>
             <div class="nav-links">
                 <a href="/">Home</a>
