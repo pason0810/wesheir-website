@@ -406,8 +406,15 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--sp-lg);
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--sp-md);
+        }
+
+        @media (max-width: 1100px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--sp-lg);
+            }
         }
 
         /* 产品卡：奶白 / 铜棕竖卡，结构 = 品类大字 → 图 → 文案 → 底部条纹 */
@@ -428,7 +435,7 @@
         }
 
         .product-card-category {
-            font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+            font-size: clamp(2.25rem, 2.6vw, 2.75rem);
             font-weight: 200;
             text-transform: lowercase;
             letter-spacing: -0.01em;
@@ -767,7 +774,7 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
-                <span class="eyebrow">Kitchen · Drinkware · Titanium</span>
+                <span class="eyebrow">Kitchen · Drinkware · Titanium · Retro</span>
                 <h1>Quality Kitchenware for Modern Living</h1>
                 <p class="hero-tagline">Share Every Moment at Home</p>
                 <p class="hero-description">
@@ -781,7 +788,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/img/v2-hero.png" alt="WESHEIR Kitchen">
+                <img src="assets/img/retro/scene-cover.webp" alt="WESHEIR Retro Collection plates set for a meal">
             </div>
         </div>
         <span class="ws-stripes" aria-hidden="true"></span>
@@ -842,6 +849,22 @@
                 </div>
                 <span class="ws-stripes ws-stripes--sm ws-stripes--on-copper" aria-hidden="true"></span>
             </a>
+
+            <a href="/retro" class="product-card">
+                <h3 class="product-card-category">retro</h3>
+                <div class="product-card-image">
+                    <img src="assets/img/retro/scene-plates.webp" alt="WESHEIR Retro Collection patterned stainless steel plates and tray" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <p class="product-card-subtitle">Vintage-finish stainless tableware</p>
+                    <p class="product-card-description">
+                        Plates, bowls, trays, cutlery and bar tools with a vintage finish.
+                        324 items across 10 categories for restaurants, cafés and lifestyle retail.
+                    </p>
+                    <span class="product-card-spec">Stainless Steel</span>
+                </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
+            </a>
         </div>
     </section>
 
@@ -849,7 +872,7 @@
     <section class="brand-story" id="about">
         <div class="brand-container">
             <div class="brand-image">
-                <img src="assets/img/v2-brand-story.png" alt="WESHEIR Brand Story">
+                <img src="assets/img/retro/scene-cutlery.webp" alt="WESHEIR Retro Collection cutlery on an oval plate">
             </div>
             <div class="brand-content">
                 <span class="eyebrow">Our Story</span>
@@ -899,6 +922,7 @@
                     <li><a href="#kitchen">Kitchen</a></li>
                     <li><a href="#drinkware">Drinkware</a></li>
                     <li><a href="#titanium">Titanium</a></li>
+                    <li><a href="/retro">Retro</a></li>
                 </ul>
             </div>
 
