@@ -434,6 +434,87 @@
             }
         }
     </style>
+    <style>
+        /* Mobile hamburger menu */
+        .nav-toggle { display: none; }
+
+        @media (max-width: 768px) {
+            header nav { position: static; }
+
+            .nav-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 44px;
+                height: 44px;
+                padding: 0 10px;
+                margin-left: auto;
+                background: none;
+                border: 0;
+                cursor: pointer;
+                justify-self: end;
+            }
+
+            .nav-toggle span {
+                display: block;
+                height: 2px;
+                background: var(--ws-espresso);
+                transition: transform 0.25s, opacity 0.2s;
+            }
+
+            .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+            .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+            header .nav-links {
+                display: none;
+                position: absolute;
+                justify-self: stretch;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                margin: 0;
+                padding: 0.5rem var(--sp-md) var(--sp-md);
+                list-style: none;
+                background: var(--ws-cream);
+                border-bottom: 1px solid rgba(63, 32, 33, 0.1);
+                box-shadow: 0 12px 24px rgba(63, 32, 33, 0.08);
+            }
+
+            header .nav-links.open { display: flex; }
+
+            header .nav-links li { display: block; }
+
+            header .nav-links a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 0.875rem;
+                font-weight: 600;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--ws-espresso);
+                border-bottom: 1px solid rgba(63, 32, 33, 0.08);
+            }
+
+            header .nav-links a::after { display: none; }
+
+            header .nav-links a.nav-cta,
+            header .nav-links a.btn-contact {
+                margin-top: var(--sp-sm);
+                padding: 1rem;
+                text-align: center;
+                border-bottom: 0;
+                border-radius: 0;
+                background: var(--ws-copper);
+                color: var(--ws-cream) !important;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -442,7 +523,7 @@
             <a href="/" class="logo">
                 <img src="assets/img/logo-wesheir-espresso.svg" alt="WESHEIR">
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="site-menu">
                 <a href="/">Home</a>
                 <a href="/#products">Products</a>
                 <a href="/custom">Custom</a>
@@ -450,6 +531,9 @@
                 <a href="/product-safety">Safety</a>
                 <a href="mailto:info@wesheir.com" class="btn-contact">Contact Us</a>
             </div>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
 
@@ -541,5 +625,25 @@
         <p>© 2026 WESHEIR. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Mobile hamburger menu
+        (function () {
+            const toggle = document.querySelector('.nav-toggle');
+            const menu = document.getElementById('site-menu');
+            if (!toggle || !menu) return;
+            const setOpen = (open) => {
+                menu.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            };
+            toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+            menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+            document.addEventListener('click', (e) => { if (!e.target.closest('header')) setOpen(false); });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
+            });
+            window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+        })();
+    </script>
 </body>
 </html>
