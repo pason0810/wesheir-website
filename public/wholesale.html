@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale | WESHEIR</title>
+    <meta name="description" content="WESHEIR wholesale: kitchen tools, insulated drinkware, pure titanium and Retro stainless tableware for retailers and distributors. Pricing on request, custom logo and packaging, brand catalog download.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* WESHEIR 视觉规范（设计3 示意版）色板 */
+            --ws-black:    #101820;
+            --ws-espresso: #3F2021;
+            --ws-copper:   #7C4D3A;
+            --ws-bronze:   #715C2A;
+            --ws-honey:    #E1B971;
+            --ws-sage:     #BFB696;
+            --ws-sand:     #C4AE82;
+            --ws-cream:    #F9F5EA;
+
+            /* Surface layers */
+            --surface-0: var(--ws-cream);
+            --surface-1: var(--ws-sand);
+            --surface-2: #EFE8D8;
+            --surface-3: #E4D9C3;
+            --surface-4: #D6C7A8;
+
+            /* Accent — copper */
+            --accent-primary: var(--ws-copper);
+            --accent-primary-hover: #6B3A2D;
+
+            /* Type */
+            --text-primary: var(--ws-espresso);
+            --text-secondary: var(--ws-black);
+            --text-tertiary: var(--ws-bronze);
+
+            /* Stripes: 条高 h，间隙 g ≈ 0.45h */
+            --stripe-h: 8px;
+            --stripe-g: 4px;
+
+            /* Spacing — fluid clamp */
+            --sp-xs: clamp(0.5rem, 1.5vw, 0.75rem);
+            --sp-sm: clamp(0.75rem, 2vw, 1rem);
+            --sp-md: clamp(1.5rem, 4vw, 2.5rem);
+            --sp-lg: clamp(2.5rem, 6vw, 4rem);
+            --sp-xl: clamp(4rem, 10vw, 7rem);
+
+            /* Type scale — fluid clamp */
+            --t-xs: clamp(0.875rem, 1.8vw, 0.9375rem);
+            --t-sm: clamp(1rem, 2.2vw, 1.125rem);
+            --t-base: clamp(1.125rem, 2.6vw, 1.25rem);
+            --t-lg: clamp(1.375rem, 3.2vw, 1.75rem);
+            --t-xl: clamp(1.875rem, 4.5vw, 2.75rem);
+            --t-display: clamp(2.75rem, 7vw, 5rem);
+
+            /* Fonts — 全站 Montserrat */
+            --font-serif: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+            /* Geometry — 方正，贴近包装稿 */
+            --radius-sm: 0;
+            --radius-md: 0;
+            --radius-pill: 0;
+            --radius-circle: 50%;
+
+            /* Shadow — 很轻，只做层次 */
+            --shadow-sm: 0 1px 4px rgba(63, 32, 33, 0.06);
+            --shadow-md: 0 4px 14px rgba(63, 32, 33, 0.08);
+            --shadow-lg: 0 10px 28px rgba(63, 32, 33, 0.12);
+        }
+
+        /* 六色条纹：沙色 → 鼠尾草卡其 → 蜂蜜金 → 古铜 → 深咖 → 铜棕 */
+        .ws-stripes {
+            --p: calc(var(--stripe-h) + var(--stripe-g));
+            display: block;
+            width: 100%;
+            height: calc(var(--p) * 6 - var(--stripe-g));
+            background: linear-gradient(to bottom,
+                var(--ws-sand)     0                                         var(--stripe-h),
+                transparent        var(--stripe-h)                           var(--p),
+                var(--ws-sage)     var(--p)                                  calc(var(--p) + var(--stripe-h)),
+                transparent        calc(var(--p) + var(--stripe-h))          calc(var(--p) * 2),
+                var(--ws-honey)    calc(var(--p) * 2)                        calc(var(--p) * 2 + var(--stripe-h)),
+                transparent        calc(var(--p) * 2 + var(--stripe-h))      calc(var(--p) * 3),
+                var(--ws-bronze)   calc(var(--p) * 3)                        calc(var(--p) * 3 + var(--stripe-h)),
+                transparent        calc(var(--p) * 3 + var(--stripe-h))      calc(var(--p) * 4),
+                var(--ws-espresso) calc(var(--p) * 4)                        calc(var(--p) * 4 + var(--stripe-h)),
+                transparent        calc(var(--p) * 4 + var(--stripe-h))      calc(var(--p) * 5),
+                var(--ws-copper)   calc(var(--p) * 5)                        100%);
+        }
+
+        /* 小号条纹：产品卡底部 */
+        .ws-stripes--sm {
+            --stripe-h: 5px;
+            --stripe-g: 2px;
+        }
+
+        /* 撞色规则（建议版）：铜棕底上去掉铜棕那一条，剩 5 条 */
+        .ws-stripes--on-copper {
+            height: calc(var(--p) * 5 - var(--stripe-g));
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-primary);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            background: var(--surface-0);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 245, 234, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(63, 32, 33, 0.1);
+            z-index: 100;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header.scrolled {
+            background: rgba(249, 245, 234, 0.98);
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--sp-sm) var(--sp-md);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: var(--sp-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px; /* SVG 自带 1/4 字高留白 */
+            width: auto;
+            transition: opacity 0.2s;
+        }
+
+        .logo:hover img {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--sp-md);
+            list-style: none;
+            justify-self: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--accent-primary);
+            color: var(--ws-cream) !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: calc(80px + var(--sp-xl));
+            padding-bottom: var(--sp-xl);
+            min-height: 90vh;
+            display: grid;
+            align-items: center;
+            background: var(--surface-0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero 底部六色条纹，左右撑满 */
+        .hero > .ws-stripes {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--sp-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content .eyebrow {
+            display: block;
+            margin-bottom: var(--sp-sm);
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: var(--t-display);
+            font-weight: 200;
+            color: var(--text-primary);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--sp-sm);
+        }
+
+        .hero-tagline {
+            font-family: var(--font-sans);
+            font-size: var(--t-lg);
+            color: var(--accent-primary);
+            font-weight: 400;
+            margin-bottom: var(--sp-md);
+        }
+
+        .hero-description {
+            font-size: var(--t-base);
+            color: var(--text-secondary);
+            margin-bottom: var(--sp-lg);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--sp-sm);
+        }
+
+        .btn {
+            padding: 1rem 2.25rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: var(--radius-circle);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: var(--ws-cream);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-primary-hover);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: var(--surface-2);
+        }
+
+        .hero-image {
+            position: relative;
+            aspect-ratio: 2/3;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Product Lines */
+        .product-lines {
+            padding: var(--sp-xl) var(--sp-md);
+            background: var(--surface-1);
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto var(--sp-lg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: var(--t-xl);
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: var(--sp-xs);
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: var(--t-base);
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        .product-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-lg);
+        }
+
+        /* 产品卡：奶白 / 铜棕竖卡，结构 = 品类大字 → 图 → 文案 → 底部条纹 */
+        .product-card {
+            background: var(--ws-cream);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--ws-black);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-card-category {
+            font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+            font-weight: 200;
+            text-transform: lowercase;
+            letter-spacing: -0.01em;
+            line-height: 1;
+            color: var(--ws-black);
+            padding: var(--sp-md) var(--sp-md) var(--sp-sm);
+        }
+
+        .product-card-image {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            position: relative;
+            background: var(--surface-2);
+            margin: 0 var(--sp-md);
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover .product-card-image img {
+            transform: scale(1.04);
+        }
+
+        .product-card-content {
+            padding: var(--sp-md);
+            flex: 1;
+        }
+
+        .product-card-subtitle {
+            font-size: var(--t-sm);
+            font-weight: 400;
+            color: var(--ws-copper);
+            margin-bottom: var(--sp-xs);
+        }
+
+        .product-card-description {
+            font-size: var(--t-xs);
+            color: inherit;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .product-card-spec {
+            display: block;
+            margin-top: var(--sp-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .product-card-tag {
+            display: inline-block;
+            border: 1px solid currentColor;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: var(--sp-xs);
+        }
+
+        /* 铜棕卡：奶白字，条纹去掉铜棕那一条 */
+        .product-card--copper {
+            background: var(--ws-copper);
+            color: var(--ws-cream);
+        }
+
+        .product-card--copper .product-card-category,
+        .product-card--copper .product-card-subtitle {
+            color: var(--ws-cream);
+        }
+
+        /* Brand Story */
+        .brand-story {
+            padding: var(--sp-xl) var(--sp-md);
+            background: var(--surface-0);
+        }
+
+        .brand-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-xl);
+            align-items: center;
+        }
+
+        .brand-image {
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+
+        .brand-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .brand-content .eyebrow {
+            display: block;
+            margin-bottom: var(--sp-sm);
+        }
+
+        .brand-content h2 {
+            font-family: var(--font-serif);
+            font-size: var(--t-xl);
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: var(--sp-md);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .brand-content p {
+            font-size: var(--t-base);
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: var(--sp-sm);
+            font-weight: 400;
+        }
+
+        .brand-content p:last-of-type {
+            margin-bottom: var(--sp-md);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--sp-xl) var(--sp-md);
+            background: var(--ws-copper);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: var(--t-xl);
+            font-weight: 300;
+            color: var(--ws-cream);
+            margin-bottom: var(--sp-sm);
+            letter-spacing: -0.01em;
+        }
+
+        .cta-section p {
+            font-size: var(--t-base);
+            color: var(--ws-cream);
+            margin-bottom: var(--sp-lg);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--sp-sm);
+            justify-content: center;
+        }
+
+        .btn-white {
+            background: var(--ws-cream);
+            color: var(--ws-copper);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-white:hover {
+            background: var(--surface-2);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: var(--ws-cream);
+            border: 1px solid var(--ws-cream);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(249, 245, 234, 0.12);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ws-espresso);
+            color: var(--ws-sand);
+            padding: var(--sp-lg) var(--sp-md);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--sp-lg);
+        }
+
+        .footer-brand img {
+            height: 48px;
+            width: auto;
+            display: block;
+            margin: 0 0 var(--sp-xs) -12px; /* 抵消 SVG 左侧留白 */
+        }
+
+        .footer-brand p {
+            font-size: var(--t-sm);
+            line-height: 1.6;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .footer-col h4 {
+            font-size: var(--t-sm);
+            font-weight: 700;
+            margin-bottom: var(--sp-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--ws-cream);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: var(--ws-sand);
+            text-decoration: none;
+            font-size: var(--t-sm);
+            transition: color 0.2s;
+            font-weight: 400;
+        }
+
+        .footer-col a:hover {
+            color: var(--ws-honey);
+        }
+
+        .footer-col li {
+            font-size: var(--t-sm);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--sp-md) auto 0;
+            padding-top: var(--sp-md);
+            border-top: 1px solid rgba(196, 174, 130, 0.25);
+            text-align: center;
+            font-size: var(--t-xs);
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                grid-template-columns: 1fr auto;
+            }
+
+            .hero-container,
+            .brand-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                order: -1;
+                max-height: 60vh;
+            }
+
+            :root {
+                --stripe-h: 6px;
+                --stripe-g: 3px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ===== Wholesale page ===== */
+        .nav-links a.active { color: var(--accent-primary); }
+        .nav-links a.active::after { width: 100%; }
+
+        .ws-hero { min-height: auto; padding-bottom: var(--sp-xl); }
+        .ws-hero .hero-image { aspect-ratio: 4 / 5; }
+
+        .ws-series .product-grid { grid-template-columns: repeat(4, 1fr); gap: var(--sp-md); }
+        .ws-series .product-card-category { font-size: clamp(2.25rem, 3.6vw, 3.25rem); }
+
+        .ws-how { padding: var(--sp-xl) var(--sp-md); background: var(--surface-0); }
+        .ws-how-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
+        .ws-how-item { background: var(--surface-2); padding: var(--sp-lg) var(--sp-md); display: flex; flex-direction: column; gap: 1rem; }
+        .ws-how-item h3 { font-size: clamp(1.75rem, 2.6vw, 2.25rem); font-weight: 200; text-transform: lowercase; line-height: 1.1; color: var(--text-primary); }
+        .ws-how-item p { font-size: 1rem; line-height: 1.7; color: var(--text-primary); }
+        .ws-how-item a { color: var(--accent-primary); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; align-self: flex-start; margin-top: auto; }
+        .ws-how-item a:hover { color: var(--accent-primary-hover); }
+
+        .ws-catalog { padding: 0 var(--sp-md) var(--sp-xl); background: var(--surface-0); }
+        .ws-catalog .cat-banner { display: grid; grid-template-columns: 1fr 1.2fr; max-width: 1400px; margin: 0 auto; background: var(--surface-2); }
+        .cat-banner-text { padding: var(--sp-lg) var(--sp-md); display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
+        .cat-banner h2 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 200; text-transform: lowercase; color: var(--text-primary); line-height: 1; letter-spacing: -0.01em; }
+        .cat-banner p { font-size: 1rem; line-height: 1.7; color: var(--text-primary); }
+        .cat-banner .retro-meta { margin: 0; }
+        .cat-banner .hero-cta { margin-top: 0.5rem; }
+        .cat-banner-img { overflow: hidden; background: var(--surface-3); display: flex; align-items: center; justify-content: center; padding: var(--sp-md); }
+        .cat-banner-img img { width: 100%; height: auto; display: block; box-shadow: 0 12px 32px rgba(16,24,32,0.18); }
+        .cat-banner > .ws-stripes { grid-column: 1 / -1; position: static; }
+        .retro-meta { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--sp-md); }
+
+        @media (max-width: 1100px) {
+            .ws-series .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .ws-series .product-grid, .ws-how-grid, .ws-catalog .cat-banner { grid-template-columns: 1fr; }
+            .cat-banner-img { order: -1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="/" class="logo"><img src="assets/img/logo-wesheir-espresso.svg" alt="WESHEIR"></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#products">Products</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/wholesale" class="active" aria-current="page">Wholesale</a></li>
+                <li><a href="mailto:info@wesheir.com" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero ws-hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="eyebrow">Wholesale</p>
+                <h1>supply for retail and hospitality</h1>
+                <p class="hero-description">
+                    Kitchen tools, insulated drinkware, pure titanium and Retro stainless tableware
+                    for retailers, distributors, restaurants and corporate buyers.
+                    Mix across series, add your logo, and we will quote to your order.
+                </p>
+                <p class="retro-meta">Four series · Custom logo &amp; packaging · Pricing on request</p>
+                <div class="hero-cta">
+                    <a href="mailto:info@wesheir.com?subject=Wholesale%20Inquiry" class="btn btn-primary"><span>Inquire</span></a>
+                    <a href="#catalog" class="btn btn-secondary"><span>Download Catalog</span></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/img/retro/scene-cutlery.webp" alt="WESHEIR stainless steel cutlery on an oval plate" width="1600" height="1470">
+            </div>
+        </div>
+        <span class="ws-stripes" aria-hidden="true"></span>
+    </section>
+
+    <!-- Series -->
+    <section class="product-lines ws-series" id="series">
+        <div class="section-header">
+            <h2 class="section-title">Four Series</h2>
+            <p class="section-subtitle">Order from one series or combine several in one shipment</p>
+        </div>
+        <div class="product-grid">
+            <a href="/#products" class="product-card">
+                <h3 class="product-card-category">kitchen</h3>
+                <div class="product-card-image">
+                    <img src="assets/img/v2-card-kitchen.png" alt="WESHEIR stainless steel kitchen tools" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <p class="product-card-subtitle">Tools and cookware for everyday cooking</p>
+                    <p class="product-card-description">Stainless steel utensils, cookware and tools with wood or steel handles.</p>
+                    <span class="product-card-spec">Stainless Steel</span>
+                </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
+            </a>
+            <a href="/#products" class="product-card">
+                <h3 class="product-card-category">drinkware</h3>
+                <div class="product-card-image">
+                    <img src="assets/img/v2-card-drinkware.png" alt="WESHEIR insulated stainless steel drinkware" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <p class="product-card-subtitle">Insulated bottles, tumblers and cups</p>
+                    <p class="product-card-description">Double-wall insulated stainless steel in multiple sizes and colours.</p>
+                    <span class="product-card-spec">Double-Wall Insulated</span>
+                </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
+            </a>
+            <a href="/#products" class="product-card product-card--copper">
+                <h3 class="product-card-category">titanium</h3>
+                <div class="product-card-image">
+                    <img src="assets/img/v2-card-titanium.png" alt="WESHEIR pure titanium drinkware and utensils" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <span class="product-card-tag">Premium Line</span>
+                    <p class="product-card-subtitle">Pure titanium, ultra-lightweight</p>
+                    <p class="product-card-description">Lightweight, corrosion-resistant drinkware and utensils for specialty retail.</p>
+                    <span class="product-card-spec">Pure Titanium</span>
+                </div>
+                <span class="ws-stripes ws-stripes--sm ws-stripes--on-copper" aria-hidden="true"></span>
+            </a>
+            <a href="/retro" class="product-card">
+                <h3 class="product-card-category">retro</h3>
+                <div class="product-card-image">
+                    <img src="assets/img/retro/scene-plates.webp" alt="WESHEIR Retro Collection patterned stainless steel plates and tray" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <p class="product-card-subtitle">Vintage-finish stainless tableware</p>
+                    <p class="product-card-description">Plates, bowls, trays, cutlery and bar tools for restaurants, cafés and lifestyle retail.</p>
+                    <span class="product-card-spec">Stainless Steel</span>
+                </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- How we work -->
+    <section class="ws-how" id="how">
+        <div class="section-header">
+            <h2 class="section-title">How We Work</h2>
+        </div>
+        <div class="ws-how-grid">
+            <div class="ws-how-item">
+                <h3>pricing on request</h3>
+                <p>Send us the items and rough quantities you have in mind. We reply with a quote built around your order.</p>
+                <a href="mailto:info@wesheir.com?subject=Wholesale%20Quote%20Request">Request a quote</a>
+            </div>
+            <div class="ws-how-item">
+                <h3>your logo, your packaging</h3>
+                <p>Laser engraving, printing and custom gift boxes for retail ranges, promotions and corporate gifting.</p>
+                <a href="/custom">Custom options</a>
+            </div>
+            <div class="ws-how-item">
+                <h3>samples first</h3>
+                <p>Check finish, weight and quality in hand before you commit. Ask us about samples for the items you are considering.</p>
+                <a href="mailto:info@wesheir.com?subject=Sample%20Request">Ask about samples</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog -->
+    <section class="ws-catalog" id="catalog">
+        <div class="cat-banner">
+            <div class="cat-banner-text">
+                <h2>brand catalog</h2>
+                <p>The full Retro Collection with item codes, sizes and finishes. A good starting point for your first inquiry.</p>
+                <p class="retro-meta">PDF · 64 pages · 6.6 MB</p>
+                <div class="hero-cta">
+                    <a href="assets/catalog/WESHEIR-Retro-Catalog-2026.pdf" class="btn btn-primary" download><span>Download Catalog</span></a>
+                </div>
+            </div>
+            <div class="cat-banner-img">
+                <img src="assets/catalog/catalog-cover.webp" alt="WESHEIR Retro Collection catalog cover" width="1000" height="706" loading="lazy">
+            </div>
+            <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="inquire">
+        <div class="cta-container">
+            <h2>Start a Wholesale Inquiry</h2>
+            <p>Tell us which series and items you are interested in. We will get back to you with pricing.</p>
+            <!-- TODO: replace mailto with Formspree form once the account is set up -->
+            <div class="cta-buttons">
+                <a href="mailto:info@wesheir.com?subject=Wholesale%20Inquiry" class="btn btn-white"><span>Inquire</span></a>
+                <a href="/custom" class="btn btn-outline-white"><span>Custom Products</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/img/logo-wesheir-white.svg" alt="WESHEIR">
+                <p>Share Every Moment at Home</p>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="/#products">Kitchen</a></li>
+                    <li><a href="/#products">Drinkware</a></li>
+                    <li><a href="/#products">Titanium</a></li>
+                    <li><a href="/retro">Retro</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/#about">About Us</a></li>
+                    <li><a href="/custom">Custom</a></li>
+                    <li><a href="/wholesale" aria-current="page">Wholesale</a></li>
+                    <li><a href="/product-safety">Product Safety</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@wesheir.com">info@wesheir.com</a></li>
+                    <li>TF International Corp.</li>
+                    <li>Linden, NJ 07036</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 WESHEIR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+    </script>
+
+</body>
+</html>
