@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home &amp; Kitchen Collection | WESHEIR</title>
+    <meta name="description" content="WESHEIR Home &amp; Kitchen Collection: 88 items of stainless steel cookware, kitchen tools and food storage, available for wholesale.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* WESHEIR 视觉规范（设计3 示意版）色板 */
+            --ws-black:    #101820;
+            --ws-espresso: #3F2021;
+            --ws-copper:   #7C4D3A;
+            --ws-bronze:   #715C2A;
+            --ws-honey:    #E1B971;
+            --ws-sage:     #BFB696;
+            --ws-sand:     #C4AE82;
+            --ws-cream:    #F9F5EA;
+
+            /* Surface layers */
+            --surface-0: var(--ws-cream);
+            --surface-1: var(--ws-sand);
+            --surface-2: #EFE8D8;
+            --surface-3: #E4D9C3;
+            --surface-4: #D6C7A8;
+
+            /* Accent — copper */
+            --accent-primary: var(--ws-copper);
+            --accent-primary-hover: #6B3A2D;
+
+            /* Type */
+            --text-primary: var(--ws-espresso);
+            --text-secondary: var(--ws-black);
+            --text-tertiary: var(--ws-bronze);
+
+            /* Stripes: 条高 h，间隙 g ≈ 0.45h */
+            --stripe-h: 8px;
+            --stripe-g: 4px;
+
+            /* Spacing — fluid clamp */
+            --sp-xs: clamp(0.5rem, 1.5vw, 0.75rem);
+            --sp-sm: clamp(0.75rem, 2vw, 1rem);
+            --sp-md: clamp(1.5rem, 4vw, 2.5rem);
+            --sp-lg: clamp(2.5rem, 6vw, 4rem);
+            --sp-xl: clamp(4rem, 10vw, 7rem);
+
+            /* Type scale — fluid clamp */
+            --t-xs: clamp(0.875rem, 1.8vw, 0.9375rem);
+            --t-sm: clamp(1rem, 2.2vw, 1.125rem);
+            --t-base: clamp(1.125rem, 2.6vw, 1.25rem);
+            --t-lg: clamp(1.375rem, 3.2vw, 1.75rem);
+            --t-xl: clamp(1.875rem, 4.5vw, 2.75rem);
+            --t-display: clamp(2.75rem, 7vw, 5rem);
+
+            /* Fonts — 全站 Montserrat */
+            --font-serif: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+            /* Geometry — 方正，贴近包装稿 */
+            --radius-sm: 0;
+            --radius-md: 0;
+            --radius-pill: 0;
+            --radius-circle: 50%;
+
+            /* Shadow — 很轻，只做层次 */
+            --shadow-sm: 0 1px 4px rgba(63, 32, 33, 0.06);
+            --shadow-md: 0 4px 14px rgba(63, 32, 33, 0.08);
+            --shadow-lg: 0 10px 28px rgba(63, 32, 33, 0.12);
+        }
+
+        /* 六色条纹：沙色 → 鼠尾草卡其 → 蜂蜜金 → 古铜 → 深咖 → 铜棕 */
+        .ws-stripes {
+            --p: calc(var(--stripe-h) + var(--stripe-g));
+            display: block;
+            width: 100%;
+            height: calc(var(--p) * 6 - var(--stripe-g));
+            background: linear-gradient(to bottom,
+                var(--ws-sand)     0                                         var(--stripe-h),
+                transparent        var(--stripe-h)                           var(--p),
+                var(--ws-sage)     var(--p)                                  calc(var(--p) + var(--stripe-h)),
+                transparent        calc(var(--p) + var(--stripe-h))          calc(var(--p) * 2),
+                var(--ws-honey)    calc(var(--p) * 2)                        calc(var(--p) * 2 + var(--stripe-h)),
+                transparent        calc(var(--p) * 2 + var(--stripe-h))      calc(var(--p) * 3),
+                var(--ws-bronze)   calc(var(--p) * 3)                        calc(var(--p) * 3 + var(--stripe-h)),
+                transparent        calc(var(--p) * 3 + var(--stripe-h))      calc(var(--p) * 4),
+                var(--ws-espresso) calc(var(--p) * 4)                        calc(var(--p) * 4 + var(--stripe-h)),
+                transparent        calc(var(--p) * 4 + var(--stripe-h))      calc(var(--p) * 5),
+                var(--ws-copper)   calc(var(--p) * 5)                        100%);
+        }
+
+        /* 小号条纹：产品卡底部 */
+        .ws-stripes--sm {
+            --stripe-h: 5px;
+            --stripe-g: 2px;
+        }
+
+        /* 撞色规则（建议版）：铜棕底上去掉铜棕那一条，剩 5 条 */
+        .ws-stripes--on-copper {
+            height: calc(var(--p) * 5 - var(--stripe-g));
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-primary);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            background: var(--surface-0);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 245, 234, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(63, 32, 33, 0.1);
+            z-index: 100;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header.scrolled {
+            background: rgba(249, 245, 234, 0.98);
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--sp-sm) var(--sp-md);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: var(--sp-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px; /* SVG 自带 1/4 字高留白 */
+            width: auto;
+            transition: opacity 0.2s;
+        }
+
+        .logo:hover img {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--sp-md);
+            list-style: none;
+            justify-self: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--accent-primary);
+            color: var(--ws-cream) !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: calc(80px + var(--sp-xl));
+            padding-bottom: var(--sp-xl);
+            min-height: 90vh;
+            display: grid;
+            align-items: center;
+            background: var(--surface-0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero 底部六色条纹，左右撑满 */
+        .hero > .ws-stripes {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--sp-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content .eyebrow {
+            display: block;
+            margin-bottom: var(--sp-sm);
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: var(--t-display);
+            font-weight: 200;
+            color: var(--text-primary);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--sp-sm);
+        }
+
+        .hero-tagline {
+            font-family: var(--font-sans);
+            font-size: var(--t-lg);
+            color: var(--accent-primary);
+            font-weight: 400;
+            margin-bottom: var(--sp-md);
+        }
+
+        .hero-description {
+            font-size: var(--t-base);
+            color: var(--text-secondary);
+            margin-bottom: var(--sp-lg);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--sp-sm);
+        }
+
+        .btn {
+            padding: 1rem 2.25rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: var(--radius-circle);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: var(--ws-cream);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-primary-hover);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: var(--surface-2);
+        }
+
+        .hero-image {
+            position: relative;
+            aspect-ratio: 2/3;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Product Lines */
+        .product-lines {
+            padding: var(--sp-xl) var(--sp-md);
+            background: var(--surface-1);
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto var(--sp-lg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: var(--t-xl);
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: var(--sp-xs);
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: var(--t-base);
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        .product-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-lg);
+        }
+
+        /* 产品卡：奶白 / 铜棕竖卡，结构 = 品类大字 → 图 → 文案 → 底部条纹 */
+        .product-card {
+            background: var(--ws-cream);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--ws-black);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-card-category {
+            font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+            font-weight: 200;
+            text-transform: lowercase;
+            letter-spacing: -0.01em;
+            line-height: 1;
+            color: var(--ws-black);
+            padding: var(--sp-md) var(--sp-md) var(--sp-sm);
+        }
+
+        .product-card-image {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            position: relative;
+            background: var(--surface-2);
+            margin: 0 var(--sp-md);
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover .product-card-image img {
+            transform: scale(1.04);
+        }
+
+        .product-card-content {
+            padding: var(--sp-md);
+            flex: 1;
+        }
+
+        .product-card-subtitle {
+            font-size: var(--t-sm);
+            font-weight: 400;
+            color: var(--ws-copper);
+            margin-bottom: var(--sp-xs);
+        }
+
+        .product-card-description {
+            font-size: var(--t-xs);
+            color: inherit;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .product-card-spec {
+            display: block;
+            margin-top: var(--sp-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .product-card-tag {
+            display: inline-block;
+            border: 1px solid currentColor;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: var(--sp-xs);
+        }
+
+        /* 铜棕卡：奶白字，条纹去掉铜棕那一条 */
+        .product-card--copper {
+            background: var(--ws-copper);
+            color: var(--ws-cream);
+        }
+
+        .product-card--copper .product-card-category,
+        .product-card--copper .product-card-subtitle {
+            color: var(--ws-cream);
+        }
+
+        /* Brand Story */
+        .brand-story {
+            padding: var(--sp-xl) var(--sp-md);
+            background: var(--surface-0);
+        }
+
+        .brand-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-xl);
+            align-items: center;
+        }
+
+        .brand-image {
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+
+        .brand-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .brand-content .eyebrow {
+            display: block;
+            margin-bottom: var(--sp-sm);
+        }
+
+        .brand-content h2 {
+            font-family: var(--font-serif);
+            font-size: var(--t-xl);
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: var(--sp-md);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .brand-content p {
+            font-size: var(--t-base);
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: var(--sp-sm);
+            font-weight: 400;
+        }
+
+        .brand-content p:last-of-type {
+            margin-bottom: var(--sp-md);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--sp-xl) var(--sp-md);
+            background: var(--ws-copper);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: var(--t-xl);
+            font-weight: 300;
+            color: var(--ws-cream);
+            margin-bottom: var(--sp-sm);
+            letter-spacing: -0.01em;
+        }
+
+        .cta-section p {
+            font-size: var(--t-base);
+            color: var(--ws-cream);
+            margin-bottom: var(--sp-lg);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--sp-sm);
+            justify-content: center;
+        }
+
+        .btn-white {
+            background: var(--ws-cream);
+            color: var(--ws-copper);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-white:hover {
+            background: var(--surface-2);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: var(--ws-cream);
+            border: 1px solid var(--ws-cream);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(249, 245, 234, 0.12);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ws-espresso);
+            color: var(--ws-sand);
+            padding: var(--sp-lg) var(--sp-md);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--sp-lg);
+        }
+
+        .footer-brand img {
+            height: 48px;
+            width: auto;
+            display: block;
+            margin: 0 0 var(--sp-xs) -12px; /* 抵消 SVG 左侧留白 */
+        }
+
+        .footer-brand p {
+            font-size: var(--t-sm);
+            line-height: 1.6;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .footer-col h4 {
+            font-size: var(--t-sm);
+            font-weight: 700;
+            margin-bottom: var(--sp-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--ws-cream);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: var(--ws-sand);
+            text-decoration: none;
+            font-size: var(--t-sm);
+            transition: color 0.2s;
+            font-weight: 400;
+        }
+
+        .footer-col a:hover {
+            color: var(--ws-honey);
+        }
+
+        .footer-col li {
+            font-size: var(--t-sm);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--sp-md) auto 0;
+            padding-top: var(--sp-md);
+            border-top: 1px solid rgba(196, 174, 130, 0.25);
+            text-align: center;
+            font-size: var(--t-xs);
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                grid-template-columns: 1fr auto;
+            }
+
+            .hero-container,
+            .brand-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                order: -1;
+                max-height: 60vh;
+            }
+
+            :root {
+                --stripe-h: 6px;
+                --stripe-g: 3px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ===== Retro collection page ===== */
+        .nav-links a.active { color: var(--accent-primary); }
+        .nav-links a.active::after { width: 100%; }
+
+        .retro-hero { min-height: auto; padding-bottom: var(--sp-xl); }
+        .retro-logo { width: min(360px, 80%); height: auto; display: block; margin-bottom: var(--sp-md); }
+        .retro-hero .hero-image { aspect-ratio: 4 / 5; }
+        .retro-meta { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--sp-md); }
+
+        .cat-tabs { display: block; max-width: none; margin: 0; padding: 0; gap: 0; position: sticky; top: 72px; z-index: 90; background: var(--surface-0); border-top: 1px solid var(--surface-3); border-bottom: 1px solid var(--surface-3); }
+        .cat-tabs ul { list-style: none; display: flex; min-width: 0; gap: 0.25rem; max-width: 1400px; margin: 0 auto; padding: 0 var(--sp-md); overflow-x: auto; scrollbar-width: none; }
+        .cat-tabs ul::-webkit-scrollbar { display: none; }
+        .cat-tabs a { display: block; white-space: nowrap; padding: 1rem 0.875rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+        .cat-tabs a span { font-weight: 400; color: var(--text-tertiary); margin-left: 0.25rem; }
+        .cat-tabs a:hover, .cat-tabs a.active { color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+        .cat-tabs a:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: -2px; }
+
+        .cat-section { padding: var(--sp-xl) var(--sp-md) 0; max-width: 1400px; margin: 0 auto; scroll-margin-top: 130px; }
+        .cat-section:last-of-type { padding-bottom: var(--sp-xl); }
+        .cat-banner--text { grid-template-columns: 1fr; }
+        .cat-banner { display: grid; grid-template-columns: 1fr 1.4fr; background: var(--surface-2); margin-bottom: var(--sp-md); }
+        .cat-banner-text { padding: var(--sp-lg) var(--sp-md); display: flex; flex-direction: column; justify-content: center;  }
+        .cat-banner h2 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 200; text-transform: lowercase; color: var(--text-primary); line-height: 1; margin-bottom: 1rem; letter-spacing: -0.01em; }
+        .cat-banner p { font-size: 1rem; color: var(--accent-primary); font-weight: 400; }
+        .cat-banner-img { aspect-ratio: 3 / 2; overflow: hidden; background: #fff; }
+        .cat-banner-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .cat-banner-img.contain img { object-fit: contain; padding: var(--sp-sm); }
+        .cat-banner > .ws-stripes { grid-column: 1 / -1; }
+
+        .retro-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-sm); }
+        .r-card { background: var(--surface-0); border: 1px solid var(--surface-3); display: flex; flex-direction: column; }
+        .r-card-img { background: #fff; }
+        .r-card-img img { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; }
+        .r-card-body { padding: 1rem 1rem 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.375rem; }
+        .r-card h3 { font-size: 1.125rem; font-weight: 400; color: var(--text-primary); line-height: 1.3; }
+        .r-sku { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text-secondary); }
+        .r-spec { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); line-height: 1.5; }
+        .r-mat { font-size: 0.8125rem; font-weight: 400; color: var(--accent-primary); }
+        .r-swatches { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin-top: auto; padding-top: 0.5rem; }
+        .r-swatches li { display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem; font-weight: 400; color: var(--text-secondary); }
+        .r-swatches i { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(16,24,32,0.2); display: inline-block; }
+
+        @media (max-width: 1100px) { .retro-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) {
+            .cat-tabs { top: 64px; }
+            .cat-banner { grid-template-columns: 1fr; }
+            .cat-banner-img { order: -1; }
+            .retro-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .r-card-body { padding: 0.75rem; }
+            .r-card h3 { font-size: 1rem; }
+        }
+
+    </style>
+    <style>
+        /* Mobile hamburger menu */
+        .nav-toggle { display: none; }
+
+        @media (max-width: 768px) {
+            header nav { position: static; }
+
+            .nav-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 44px;
+                height: 44px;
+                padding: 0 10px;
+                margin-left: auto;
+                background: none;
+                border: 0;
+                cursor: pointer;
+                justify-self: end;
+            }
+
+            .nav-toggle span {
+                display: block;
+                height: 2px;
+                background: var(--ws-espresso);
+                transition: transform 0.25s, opacity 0.2s;
+            }
+
+            .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+            .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+            header .nav-links {
+                display: none;
+                position: absolute;
+                justify-self: stretch;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                margin: 0;
+                padding: 0.5rem var(--sp-md) var(--sp-md);
+                list-style: none;
+                background: var(--ws-cream);
+                border-bottom: 1px solid rgba(63, 32, 33, 0.1);
+                box-shadow: 0 12px 24px rgba(63, 32, 33, 0.08);
+            }
+
+            header .nav-links.open { display: flex; }
+
+            header .nav-links li { display: block; }
+
+            header .nav-links a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 0.875rem;
+                font-weight: 600;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--ws-espresso);
+                border-bottom: 1px solid rgba(63, 32, 33, 0.08);
+            }
+
+            header .nav-links a::after { display: none; }
+
+            header .nav-links a.nav-cta,
+            header .nav-links a.btn-contact {
+                margin-top: var(--sp-sm);
+                padding: 1rem;
+                text-align: center;
+                border-bottom: 0;
+                border-radius: 0;
+                background: var(--ws-copper);
+                color: var(--ws-cream) !important;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="/" class="logo"><img src="assets/img/logo-wesheir-espresso.svg" alt="WESHEIR"></a>
+            <ul class="nav-links" id="site-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/kitchen" class="active" aria-current="page">Products</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/wholesale">Wholesale</a></li>
+                <li><a href="mailto:info@wesheir.com" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero retro-hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="eyebrow">Home &amp; Kitchen Collection</p>
+                <h1>Share Every Moment at Home</h1>
+                <p class="hero-description">88 items of stainless steel cookware, kitchen tools and food storage. Available for wholesale, with custom logo and packaging.</p>
+                <p class="retro-meta">88 Items &middot; 10 Categories &middot; Stainless Steel</p>
+                <div class="hero-cta">
+                    <a href="mailto:info@wesheir.com?subject=Home%20%26%20Kitchen%20Inquiry" class="btn btn-primary"><span>Inquire</span></a>
+                    <a href="#storage" class="btn btn-secondary"><span>Browse Collection</span></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/img/kitchen/scenes/scene-cover.webp" alt="WESHEIR kitchen tools and cookware on a wooden table" width="933" height="1400">
+            </div>
+        </div>
+    </section>
+
+    <nav class="cat-tabs" aria-label="Product categories">
+        <ul>
+            <li><a href="#storage" data-all>All<span>88</span></a></li><li><a href="#storage">Storage & Lunch Box<span>10</span></a></li><li><a href="#bowls">Mixing Bowls<span>11</span></a></li><li><a href="#cookware">Cookware<span>1</span></a></li><li><a href="#turners">Turners & Spatulas<span>20</span></a></li><li><a href="#spoons">Spoons & Ladles<span>15</span></a></li><li><a href="#tongs">Tongs<span>4</span></a></li><li><a href="#strainers">Strainers & Skimmers<span>6</span></a></li><li><a href="#measuring">Measuring<span>4</span></a></li><li><a href="#gadgets">Gadgets<span>12</span></a></li><li><a href="#accessories">Accessories<span>2</span></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="cat-section" id="storage" aria-labelledby="h-storage">
+            <div class="cat-banner">
+                <div class="cat-banner-text">
+                    <h2 id="h-storage">storage &amp; lunch box</h2>
+                    <p>10 items</p>
+                </div>
+                <div class="cat-banner-img"><img src="assets/img/kitchen/scenes/scene-storage.webp" alt="" loading="lazy"></div><span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K801.webp" alt="Food Storage Container, Steel Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Food Storage Container, Steel Lid</h3>
+                        <p class="r-sku">WS-K801</p>
+                        <p class="r-spec"><span>18.5 / 40.5 / 81 oz<br><span>550 / 1200 / 2400 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 3 sizes · 5½″ – 9½″ long</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K802.webp" alt="Food Storage Container, Bamboo Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Food Storage Container, Bamboo Lid</h3>
+                        <p class="r-sku">WS-K802</p>
+                        <p class="r-spec"><span>28.5 / 47.5 oz<br><span>850 / 1400 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 2 sizes · 6½″ – 8″ long</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K803.webp" alt="Food Storage Container, Clear Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Food Storage Container, Clear Lid</h3>
+                        <p class="r-sku">WS-K803</p>
+                        <p class="r-spec"><span>20.5 / 40.5 / 81 oz<br><span>600 / 1200 / 2400 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 3 sizes · 6½″ – 8⅞″ long</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K804.webp" alt="Food Storage Container, Style A" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Food Storage Container, Style A</h3>
+                        <p class="r-sku">WS-K804 / WS-K805</p>
+                        <p class="r-spec"><span>10 / 20.5 / 34 / 57.5 oz<br><span>300 / 600 / 1000 / 1700 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 4 sizes</span></p><p class="r-mat">201 or Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K806.webp" alt="Food Storage Container, Style B" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Food Storage Container, Style B</h3>
+                        <p class="r-sku">WS-K806 / WS-K807</p>
+                        <p class="r-spec"><span>10 / 18.5 / 30.5 / 50.5 oz<br><span>300 / 550 / 900 / 1500 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 4 sizes</span></p><p class="r-mat">201 or Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K808.webp" alt="Food Storage Container, Style C" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Food Storage Container, Style C</h3>
+                        <p class="r-sku">WS-K808</p>
+                        <p class="r-spec"><span>13.5 / 20.5 / 37 / 74.5 / 118.5 oz<br><span>400 / 600 / 1100 / 2200 / 3500 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 5 sizes</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K809.webp" alt="Round Food Storage Container, Silicone Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Round Food Storage Container, Silicone Lid</h3>
+                        <p class="r-sku">WS-K809</p>
+                        <p class="r-spec"><span>3 / 6 / 13 / 20.5 / 30.5 oz<br><span>90 / 180 / 380 / 600 / 900 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 5 sizes · Ø 2¾″ – 6″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K810.webp" alt="Rectangular Food Storage Container, Silicone Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rectangular Food Storage Container, Silicone Lid</h3>
+                        <p class="r-sku">WS-K810</p>
+                        <p class="r-spec"><span>2.5 / 8 / 14 / 24.5 oz<br><span>80 / 230 / 420 / 720 ml</span></span></p>
+                        <p class="r-spec"><span>Available in 4 sizes</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K703.webp" alt="Square Sauce Containers" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Square Sauce Containers</h3>
+                        <p class="r-sku">WS-K703</p>
+                        <p class="r-spec"><span>2⅛″ × 1¼″ · 2 oz<br><span>55 × 30 mm</span></span></p>
+                        <p class="r-spec"><span>Set of 6 · 6 lid colors</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K704.webp" alt="Round Sauce Containers" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Round Sauce Containers</h3>
+                        <p class="r-sku">WS-K704</p>
+                        <p class="r-spec"><span>Ø 2⅜″ × 1¼″ · 1.7 oz<br><span>Ø 60 × 30 mm</span></span></p>
+                        <p class="r-spec"><span>Set of 6</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="bowls" aria-labelledby="h-bowls">
+            <div class="cat-banner">
+                <div class="cat-banner-text">
+                    <h2 id="h-bowls">mixing bowls</h2>
+                    <p>11 items</p>
+                </div>
+                <div class="cat-banner-img"><img src="assets/img/kitchen/scenes/scene-bowls.webp" alt="" loading="lazy"></div><span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K901.webp" alt="Mixing Bowl" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Mixing Bowl</h3>
+                        <p class="r-sku">WS-K901</p>
+                        <p class="r-spec"><span>Ø 5½″ – 12″<br><span>Ø 140 – 300 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 5½″, 6½″, 7″, 8″, 8½″, 9½″, 10″, 11″, 12″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K902.webp" alt="Mixing Bowl with Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Mixing Bowl with Lid</h3>
+                        <p class="r-sku">WS-K902</p>
+                        <p class="r-spec"><span>Ø 5½″ – 12″<br><span>Ø 140 – 300 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 5½″, 6½″, 7″, 8″, 8½″, 9½″, 10″, 11″, 12″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K903.webp" alt="Mixing Bowl, Grater Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Mixing Bowl, Grater Lid</h3>
+                        <p class="r-sku">WS-K903</p>
+                        <p class="r-spec"><span>Ø 7″ – 10″<br><span>Ø 180 – 260 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 7″, 8″, 8½″, 9½″, 10″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K904.webp" alt="Non-Slip Bowl" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Non-Slip Bowl</h3>
+                        <p class="r-sku">WS-K904</p>
+                        <p class="r-spec"><span>Ø 5½″ – 12″<br><span>Ø 140 – 300 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 5½″, 6½″, 7″, 8″, 8½″, 9½″, 10″, 11″, 12″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K905.webp" alt="Non-Slip Bowl with Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Non-Slip Bowl with Lid</h3>
+                        <p class="r-sku">WS-K905</p>
+                        <p class="r-spec"><span>Ø 5½″ – 12″<br><span>Ø 140 – 300 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 5½″, 6½″, 7″, 8″, 8½″, 9½″, 10″, 11″, 12″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K906.webp" alt="Non-Slip Bowl, Grater Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Non-Slip Bowl, Grater Lid</h3>
+                        <p class="r-sku">WS-K906</p>
+                        <p class="r-spec"><span>Ø 7″ – 10″<br><span>Ø 180 – 260 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 7″, 8″, 8½″, 9½″, 10″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K907.webp" alt="Non-Slip Bowl, Grater Set" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Non-Slip Bowl, Grater Set</h3>
+                        <p class="r-sku">WS-K907</p>
+                        <p class="r-spec"><span>Ø 9½″<br><span>Ø 240 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K908.webp" alt="Mixing Bowl Set, 4 pc" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Mixing Bowl Set, 4 pc</h3>
+                        <p class="r-sku">WS-K908</p>
+                        <p class="r-spec"><span>Ø 7″ / 8″ / 8½″ / 9½″<br><span>Ø 180 / 200 / 220 / 240 mm</span></span></p>
+                        <p class="r-spec"><span>Gift box</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K909.webp" alt="Large Mixing Bowl" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Large Mixing Bowl</h3>
+                        <p class="r-sku">WS-K909</p>
+                        <p class="r-spec"><span>Ø 12″ – 15½″<br><span>Ø 295 – 395 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 12″, 12½″, 13½″, 14″, 15″, 15½″</span></p><p class="r-mat">Stainless Steel 201</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K910.webp" alt="Non-Slip Bowl with Clear Lid" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Non-Slip Bowl with Clear Lid</h3>
+                        <p class="r-sku">WS-K910</p>
+                        <p class="r-spec"><span>7″ – 10″ · 1.5 – 5.5 qt<br><span>1.5 – 5 L</span></span></p>
+                        <p class="r-spec"><span>Available in 7″, 8″, 8½″, 9½″, 10″</span></p><p class="r-mat">Stainless Steel 201</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K407.webp" alt="Colander with Handles, 201" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Colander with Handles, 201</h3>
+                        <p class="r-sku">WS-K407 / WS-K408</p>
+                        <p class="r-spec"><span>Ø 7″ – 12″ · 1.5 – 5.5 qt<br><span>Ø 180 – 300 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 7″, 8½″, 10″, 12″</span></p><p class="r-mat">201 or Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="cookware" aria-labelledby="h-cookware">
+            <div class="cat-banner">
+                <div class="cat-banner-text">
+                    <h2 id="h-cookware">cookware</h2>
+                    <p>1 items</p>
+                </div>
+                <div class="cat-banner-img"><img src="assets/img/kitchen/scenes/scene-cookware.webp" alt="" loading="lazy"></div><span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K1001-GD.webp" alt="Korean Ramen Pot" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K1001-SS.webp" alt="Korean Ramen Pot, natural finish" width="600" height="600" loading="lazy"></div><div class="r-card-body">
+                        <h3>Korean Ramen Pot</h3>
+                        <p class="r-sku">WS-K1001</p>
+                        <p class="r-spec"><span>7″ – 10″ · 1 – 3.5 qt<br><span>18 – 26 cm</span></span></p>
+                        <p class="r-spec"><span>Available in 7″, 8″, 8½″, 9½″, 10″</span></p><p class="r-mat">Stainless Steel 201</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#C2A25A"></i>Gold</li><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="turners" aria-labelledby="h-turners">
+            <div class="cat-banner">
+                <div class="cat-banner-text">
+                    <h2 id="h-turners">turners &amp; spatulas</h2>
+                    <p>20 items</p>
+                </div>
+                <div class="cat-banner-img"><img src="assets/img/kitchen/scenes/scene-turners.webp" alt="" loading="lazy"></div><span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K101.webp" alt="Slotted Fish Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Slotted Fish Spatula</h3>
+                        <p class="r-sku">WS-K101</p>
+                        <p class="r-spec"><span>12⅜″ × 3⅛″<br><span>313 × 80 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K102.webp" alt="All-Steel Fish Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>All-Steel Fish Spatula</h3>
+                        <p class="r-sku">WS-K102</p>
+                        <p class="r-spec"><span>10″ × 2⅝″<br><span>255 × 68 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K103.webp" alt="Compact Fish Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Compact Fish Spatula</h3>
+                        <p class="r-sku">WS-K103</p>
+                        <p class="r-spec"><span>10⅝″ × 2⅝″<br><span>270 × 68 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K104.webp" alt="Square Griddle Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Square Griddle Spatula</h3>
+                        <p class="r-sku">WS-K104</p>
+                        <p class="r-spec"><span>12⅜″ × 5⅛″<br><span>315 × 130 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K105.webp" alt="Long Griddle Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Long Griddle Spatula</h3>
+                        <p class="r-sku">WS-K105</p>
+                        <p class="r-spec"><span>14⅜″ × 2¾″<br><span>364 × 71 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K106.webp" alt="Long Slotted Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Long Slotted Spatula</h3>
+                        <p class="r-sku">WS-K106</p>
+                        <p class="r-spec"><span>14⅜″ × 2¾″<br><span>364 × 71 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K107.webp" alt="Beveled Griddle Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Beveled Griddle Spatula</h3>
+                        <p class="r-sku">WS-K107</p>
+                        <p class="r-spec"><span>11⅝″ × 2¾″<br><span>294 × 70 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K108.webp" alt="Slotted Beveled Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Slotted Beveled Spatula</h3>
+                        <p class="r-sku">WS-K108</p>
+                        <p class="r-spec"><span>11⅝″ × 2¾″<br><span>294 × 70 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K109.webp" alt="Wide Burger Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Wide Burger Turner</h3>
+                        <p class="r-sku">WS-K109</p>
+                        <p class="r-spec"><span>9⅞″ × 4⅝″<br><span>250 × 117 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K110.webp" alt="Angled Griddle Scraper" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Angled Griddle Scraper</h3>
+                        <p class="r-sku">WS-K110</p>
+                        <p class="r-spec"><span>9¼″ × 3¾″<br><span>235 × 96 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K111.webp" alt="Slotted Pancake Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Slotted Pancake Turner</h3>
+                        <p class="r-sku">WS-K111</p>
+                        <p class="r-spec"><span>10⅞″ × 1⅞″<br><span>275 × 47 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 410</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K112.webp" alt="Slotted Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Slotted Turner</h3>
+                        <p class="r-sku">WS-K112</p>
+                        <p class="r-spec"><span>14″ × 3″<br><span>355 × 77 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K113.webp" alt="Solid Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Solid Turner</h3>
+                        <p class="r-sku">WS-K113</p>
+                        <p class="r-spec"><span>13¾″ × 3″<br><span>350 × 77 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K114.webp" alt="Rosewood Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rosewood Turner</h3>
+                        <p class="r-sku">WS-K114</p>
+                        <p class="r-spec"><span>15¼″ × 3¾″<br><span>386 × 96 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#6B3A2A"></i>Rosewood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K115.webp" alt="Rosewood Slotted Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rosewood Slotted Turner</h3>
+                        <p class="r-sku">WS-K115</p>
+                        <p class="r-spec"><span>15⅝″ × 3⅛″<br><span>398 × 79 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#6B3A2A"></i>Rosewood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K116.webp" alt="Silicone-Edge Fish Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Silicone-Edge Fish Spatula</h3>
+                        <p class="r-sku">WS-K116</p>
+                        <p class="r-spec"><span>12″ × 3½″<br><span>305 × 88 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#A8322D"></i>Red</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K117.webp" alt="Silicone-Edge Slotted Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Silicone-Edge Slotted Turner</h3>
+                        <p class="r-sku">WS-K117</p>
+                        <p class="r-spec"><span>15¼″ × 3⅞″<br><span>388 × 98 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#A8322D"></i>Red</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K118.webp" alt="Silicone-Edge Solid Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Silicone-Edge Solid Turner</h3>
+                        <p class="r-sku">WS-K118</p>
+                        <p class="r-spec"><span>15¼″ × 3⅞″<br><span>388 × 98 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#A8322D"></i>Red</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K119.webp" alt="Beech Long-Handle Wok Spatula" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Beech Long-Handle Wok Spatula</h3>
+                        <p class="r-sku">WS-K119</p>
+                        <p class="r-spec"><span>16⅞″ × 3⅞″<br><span>430 × 100 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#D2A777"></i>Beech</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K120.webp" alt="Beech Long-Handle Slotted Turner" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Beech Long-Handle Slotted Turner</h3>
+                        <p class="r-sku">WS-K120</p>
+                        <p class="r-spec"><span>16⅞″ × 3⅛″<br><span>430 × 80 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#D2A777"></i>Beech</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="spoons" aria-labelledby="h-spoons">
+            <div class="cat-banner">
+                <div class="cat-banner-text">
+                    <h2 id="h-spoons">spoons &amp; ladles</h2>
+                    <p>15 items</p>
+                </div>
+                <div class="cat-banner-img"><img src="assets/img/kitchen/scenes/scene-spoons.webp" alt="" loading="lazy"></div><span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K201.webp" alt="Soup Ladle" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Soup Ladle</h3>
+                        <p class="r-sku">WS-K201</p>
+                        <p class="r-spec"><span>11¾″ × 3½″<br><span>300 × 88 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K202.webp" alt="Slotted Serving Spoon" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Slotted Serving Spoon</h3>
+                        <p class="r-sku">WS-K202</p>
+                        <p class="r-spec"><span>13¼″ × 2¾″<br><span>335 × 70 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K203.webp" alt="Solid Serving Spoon" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Solid Serving Spoon</h3>
+                        <p class="r-sku">WS-K203</p>
+                        <p class="r-spec"><span>13¼″ × 2¾″<br><span>335 × 70 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K204.webp" alt="Pasta Server" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Pasta Server</h3>
+                        <p class="r-sku">WS-K204</p>
+                        <p class="r-spec"><span>12⅜″ × 2⅜″<br><span>315 × 60 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K205.webp" alt="Rosewood Soup Ladle" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rosewood Soup Ladle</h3>
+                        <p class="r-sku">WS-K205</p>
+                        <p class="r-spec"><span>14½″ × 3¾″<br><span>368 × 96 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#6B3A2A"></i>Rosewood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K206.webp" alt="Rosewood Skimmer" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rosewood Skimmer</h3>
+                        <p class="r-sku">WS-K206</p>
+                        <p class="r-spec"><span>15⅜″ × 4⅝″<br><span>392 × 117 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#6B3A2A"></i>Rosewood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K207.webp" alt="Rosewood Rice Paddle" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rosewood Rice Paddle</h3>
+                        <p class="r-sku">WS-K207</p>
+                        <p class="r-spec"><span>13″ × 3″<br><span>331 × 75 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#6B3A2A"></i>Rosewood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K208.webp" alt="Rosewood Pasta Server" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rosewood Pasta Server</h3>
+                        <p class="r-sku">WS-K208</p>
+                        <p class="r-spec"><span>13⅞″ × 3¼″<br><span>351 × 82 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#6B3A2A"></i>Rosewood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K209.webp" alt="Korean Strainer Spoon" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Korean Strainer Spoon</h3>
+                        <p class="r-sku">WS-K209</p>
+                        <p class="r-spec"><span>16½″ × 5⅛″<br><span>420 × 130 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#B98A5E"></i>Wood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K210.webp" alt="Korean Hot Pot Skimmer" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Korean Hot Pot Skimmer</h3>
+                        <p class="r-sku">WS-K210</p>
+                        <p class="r-spec"><span>13⅜″ × 2¾″<br><span>340 × 70 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#B98A5E"></i>Wood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K211.webp" alt="Korean Hot Pot Ladle" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Korean Hot Pot Ladle</h3>
+                        <p class="r-sku">WS-K211</p>
+                        <p class="r-spec"><span>13½″ × 2¾″<br><span>342 × 70 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#B98A5E"></i>Wood</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K212.webp" alt="Beech Long-Handle Wok Ladle" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Beech Long-Handle Wok Ladle</h3>
+                        <p class="r-sku">WS-K212</p>
+                        <p class="r-spec"><span>16½″ × 3⅞″<br><span>420 × 98 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#D2A777"></i>Beech</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K213.webp" alt="Beech Long-Handle Skimmer" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Beech Long-Handle Skimmer</h3>
+                        <p class="r-sku">WS-K213</p>
+                        <p class="r-spec"><span>16⅞″ × 4⅝″<br><span>430 × 118 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#D2A777"></i>Beech</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K214.webp" alt="Beech Long-Handle Spaghetti Spoon" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Beech Long-Handle Spaghetti Spoon</h3>
+                        <p class="r-sku">WS-K214</p>
+                        <p class="r-spec"><span>15¾″ × 3¼″<br><span>400 × 84 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#D2A777"></i>Beech</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K215.webp" alt="Beech Long-Handle Rice Paddle" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Beech Long-Handle Rice Paddle</h3>
+                        <p class="r-sku">WS-K215</p>
+                        <p class="r-spec"><span>17⅜″ × 3⅛″<br><span>440 × 80 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#D2A777"></i>Beech</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="tongs" aria-labelledby="h-tongs">
+            <div class="cat-banner cat-banner--text">
+                <div class="cat-banner-text">
+                    <h2 id="h-tongs">tongs</h2>
+                    <p>4 items</p>
+                </div>
+                <span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K301-BK.webp" alt="Silicone Locking Tongs" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Silicone Locking Tongs</h3>
+                        <p class="r-sku">WS-K301-BK</p>
+                        <p class="r-spec"><span>8¼″ – 13⅜″ long<br><span>210 – 340 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 8½″, 10″, 13″</span></p><p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K301-RD.webp" alt="Silicone Locking Tongs" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Silicone Locking Tongs</h3>
+                        <p class="r-sku">WS-K301-RD</p>
+                        <p class="r-spec"><span>8¼″ – 13⅜″ long<br><span>210 – 340 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 8½″, 10″, 13″</span></p><p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#A8322D"></i>Red</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K302.webp" alt="All-Steel Locking Tongs" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>All-Steel Locking Tongs</h3>
+                        <p class="r-sku">WS-K302</p>
+                        <p class="r-spec"><span>8¼″ – 13⅜″ long<br><span>210 – 340 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 8½″, 10″, 13″</span></p><p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K303-28.webp" alt="Perforated Serving Tongs" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Perforated Serving Tongs</h3>
+                        <p class="r-sku">WS-K303</p>
+                        <p class="r-spec"><span>5⅛″ – 13¼″ long<br><span>130 – 335 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 5″, 7″, 9″, 11″, 13″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="strainers" aria-labelledby="h-strainers">
+            <div class="cat-banner cat-banner--text">
+                <div class="cat-banner-text">
+                    <h2 id="h-strainers">strainers &amp; skimmers</h2>
+                    <p>6 items</p>
+                </div>
+                <span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K401.webp" alt="Fine Mesh Skimmer" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Fine Mesh Skimmer</h3>
+                        <p class="r-sku">WS-K401</p>
+                        <p class="r-spec"><span>9″ long · Ø 3¼″ mesh<br><span>230 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K402.webp" alt="Pot Side Strainer" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Pot Side Strainer</h3>
+                        <p class="r-sku">WS-K402</p>
+                        <p class="r-spec"><span>14″ × 2½″<br><span>355 × 63 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K403-16.webp" alt="Wire Spider Strainer" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Wire Spider Strainer</h3>
+                        <p class="r-sku">WS-K403</p>
+                        <p class="r-spec"><span>Ø 5¼″ – 7⅝″ · 15″ – 17½″ long<br><span>Ø 135 – 192 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 5½″, 6½″, 7″, 7½″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K404.webp" alt="Fine Mesh Sieve" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Fine Mesh Sieve</h3>
+                        <p class="r-sku">WS-K404</p>
+                        <p class="r-spec"><span>Ø 4⅝″ – 6¼″ · 13″ – 14¼″ long<br><span>Ø 117 – 157 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 4½″, 5½″, 6″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K405.webp" alt="Mesh Colander with Stand" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Mesh Colander with Stand</h3>
+                        <p class="r-sku">WS-K405</p>
+                        <p class="r-spec"><span>Ø 4¾″ – 9½″ · 3⅛″ – 3½″ high<br><span>Ø 119 – 240 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 4½″, 7″, 8½″, 9½″</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K406.webp" alt="Collapsible Colander" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Collapsible Colander</h3>
+                        <p class="r-sku">WS-K406</p>
+                        <p class="r-spec"><span>Ø 9¼″ – 12⅝″ · 3⅝″ – 5⅛″ high<br><span>Ø 235 – 320 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 9½″, 12½″</span></p><p class="r-mat">Food-Grade Silicone</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#1F2A44"></i>Navy</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="measuring" aria-labelledby="h-measuring">
+            <div class="cat-banner cat-banner--text">
+                <div class="cat-banner-text">
+                    <h2 id="h-measuring">measuring</h2>
+                    <p>4 items</p>
+                </div>
+                <span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K501.webp" alt="Measuring Spoons, 4 pc" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Measuring Spoons, 4 pc</h3>
+                        <p class="r-sku">WS-K501</p>
+                        <p class="r-spec"><span>5⅛″ – 6¼″ long<br><span>5 / 10 / 15 / 30 ml</span></span></p>
+                        <p class="r-spec"><span>Set of 4</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K502.webp" alt="Measuring Spoons, 8 pc" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Measuring Spoons, 8 pc</h3>
+                        <p class="r-sku">WS-K502</p>
+                        <p class="r-spec"><span>1/16 tsp – 1 Tbsp<br><span>With leveler</span></span></p>
+                        <p class="r-spec"><span>Set of 8</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K503.webp" alt="Acacia Coffee Scoop, Long" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Acacia Coffee Scoop, Long</h3>
+                        <p class="r-sku">WS-K503</p>
+                        <p class="r-spec"><span>6½″ long · 1 – 2 Tbsp<br><span>15 / 30 ml</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#C2A25A"></i>Gold</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K503.webp" alt="Acacia Coffee Scoop, Short" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Acacia Coffee Scoop, Short</h3>
+                        <p class="r-sku">WS-K504</p>
+                        <p class="r-spec"><span>4¾″ long · 1 – 2 Tbsp<br><span>15 / 30 ml</span></span></p>
+                        <p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#C2A25A"></i>Gold</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="gadgets" aria-labelledby="h-gadgets">
+            <div class="cat-banner cat-banner--text">
+                <div class="cat-banner-text">
+                    <h2 id="h-gadgets">gadgets</h2>
+                    <p>12 items</p>
+                </div>
+                <span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K601.webp" alt="Rasp Zester" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Rasp Zester</h3>
+                        <p class="r-sku">WS-K601</p>
+                        <p class="r-spec"><span>12¾″ × 1⅛″<br><span>325 × 27 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 410</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K602.webp" alt="Flat Grater" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Flat Grater</h3>
+                        <p class="r-sku">WS-K602</p>
+                        <p class="r-spec"><span>9⅜″ × 2¼″<br><span>239 × 58 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 410</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K603.webp" alt="Can Opener, Classic" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Can Opener, Classic</h3>
+                        <p class="r-sku">WS-K603</p>
+                        <p class="r-spec"><span>8⅛″ × 1⅞″<br><span>206 × 47 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 410</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K604.webp" alt="Can Opener, Tubular" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Can Opener, Tubular</h3>
+                        <p class="r-sku">WS-K604</p>
+                        <p class="r-spec"><span>7⅞″ × 1⅞″<br><span>200 × 47 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 410</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K605.webp" alt="Garlic Press" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Garlic Press</h3>
+                        <p class="r-sku">WS-K605</p>
+                        <p class="r-spec"><span>7¼″ × 2″<br><span>185 × 50 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 410</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K606.webp" alt="Vegetable Peeler" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Vegetable Peeler</h3>
+                        <p class="r-sku">WS-K606</p>
+                        <p class="r-spec"><span>6¾″ × 2⅛″<br><span>173 × 55 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K607.webp" alt="Julienne Peeler" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Julienne Peeler</h3>
+                        <p class="r-sku">WS-K607</p>
+                        <p class="r-spec"><span>6¾″ × 3⅛″<br><span>170 × 80 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 410</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K608.webp" alt="Cheese Slicer" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Cheese Slicer</h3>
+                        <p class="r-sku">WS-K608</p>
+                        <p class="r-spec"><span>9⅛″ × 3⅛″<br><span>233 × 80 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K609.webp" alt="Balloon Whisk" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Balloon Whisk</h3>
+                        <p class="r-sku">WS-K609</p>
+                        <p class="r-spec"><span>11¼″ × 2⅛″<br><span>285 × 55 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K610.webp" alt="Bench Scraper" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Bench Scraper</h3>
+                        <p class="r-sku">WS-K610</p>
+                        <p class="r-spec"><span>6⅜″ × 4¾″<br><span>161 × 120 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K611.webp" alt="Meat Fork" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Meat Fork</h3>
+                        <p class="r-sku">WS-K611</p>
+                        <p class="r-spec"><span>13¼″ × 1″<br><span>338 × 25 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K612.webp" alt="Silicone-Edge Potato Masher" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Silicone-Edge Potato Masher</h3>
+                        <p class="r-sku">WS-K612</p>
+                        <p class="r-spec"><span>12¾″ × 4⅛″<br><span>323 × 105 mm</span></span></p>
+                        <p class="r-mat">Stainless Steel 430</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#A8322D"></i>Red</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="cat-section" id="accessories" aria-labelledby="h-accessories">
+            <div class="cat-banner cat-banner--text">
+                <div class="cat-banner-text">
+                    <h2 id="h-accessories">accessories</h2>
+                    <p>2 items</p>
+                </div>
+                <span class="ws-stripes" aria-hidden="true"></span>
+            </div>
+            <ul class="retro-grid" role="list">
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K701.webp" alt="Splatter Screen" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Splatter Screen</h3>
+                        <p class="r-sku">WS-K701</p>
+                        <p class="r-spec"><span>Ø 9⅞″ – 13″ · 15¾″ – 18⅞″ long<br><span>Ø 250 – 330 mm</span></span></p>
+                        <p class="r-spec"><span>Available in 10″, 11½″, 13″</span></p><p class="r-mat">Stainless Steel 201</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li><li><i style="background:#101820"></i>Black</li></ul>
+                    </div>
+                </li>
+                <li class="r-card">
+                    <div class="r-card-img"><img src="assets/img/kitchen/cards/K702.webp" alt="Folding Steamer Basket" width="600" height="600" loading="lazy"></div>
+                    <div class="r-card-body">
+                        <h3>Folding Steamer Basket</h3>
+                        <p class="r-sku">WS-K702</p>
+                        <p class="r-spec"><span>Opens 9¼″ – 11¼″ · 4⅞″ high<br><span>Ø 145 – 165 mm folded</span></span></p>
+                        <p class="r-spec"><span>Available in S, M, L</span></p><p class="r-mat">Stainless Steel 304 (18/8)</p>
+                        <ul class="r-swatches" aria-label="Finishes"><li><i style="background:#898989"></i>Steel</li></ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+            </main>
+
+    <section class="cta-section" id="inquire">
+        <div class="cta-container">
+            <h2>Interested in the Home &amp; Kitchen Collection?</h2>
+            <p>Tell us which items you are looking at. We will get back to you with pricing.</p>
+            <div class="cta-buttons">
+                <a href="mailto:info@wesheir.com?subject=Home%20%26%20Kitchen%20Inquiry" class="btn btn-white"><span>Inquire</span></a>
+                <a href="/custom" class="btn btn-outline-white"><span>Custom Products</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/img/logo-wesheir-white.svg" alt="WESHEIR">
+                <p>Share Every Moment at Home</p>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="/kitchen" aria-current="page">Kitchen</a></li>
+                    <li><a href="/#products">Drinkware</a></li>
+                    <li><a href="/titanium">Titanium</a></li>
+                    <li><a href="/retro">Retro</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/#about">About Us</a></li>
+                    <li><a href="/custom">Custom</a></li>
+                    <li><a href="/wholesale">Wholesale</a></li>
+                    <li><a href="/product-safety">Product Safety</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@wesheir.com">info@wesheir.com</a></li>
+                    <li>TF International Corp.</li>
+                    <li>Linden, NJ 07036</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 WESHEIR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // 品类标签：滚动时高亮当前品类
+        const tabLinks = document.querySelectorAll('.cat-tabs a:not([data-all])');
+        const tabMap = {};
+        tabLinks.forEach(a => tabMap[a.getAttribute('href').slice(1)] = a);
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                if (!en.isIntersecting) return;
+                tabLinks.forEach(a => a.classList.remove('active'));
+                const a = tabMap[en.target.id];
+                if (a) {
+                    a.classList.add('active');
+                    const ul = a.closest('ul');
+                    ul.scrollTo({ left: a.offsetLeft - 24, behavior: 'smooth' });
+                }
+            });
+        }, { rootMargin: '-140px 0px -60% 0px' });
+        document.querySelectorAll('.cat-section').forEach(s => io.observe(s));
+    </script>
+    <script>
+        // Mobile hamburger menu
+        (function () {
+            const toggle = document.querySelector('.nav-toggle');
+            const menu = document.getElementById('site-menu');
+            if (!toggle || !menu) return;
+            const setOpen = (open) => {
+                menu.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            };
+            toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+            menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+            document.addEventListener('click', (e) => { if (!e.target.closest('header')) setOpen(false); });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
+            });
+            window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+        })();
+    </script>
+</body>
+</html>
