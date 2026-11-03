@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wholesale | WESHEIR</title>
-    <meta name="description" content="WESHEIR wholesale: kitchen tools, insulated drinkware, pure titanium and Retro stainless tableware for retailers and distributors. Pricing on request, custom logo and packaging, brand catalog download.">
+    <meta name="description" content="WESHEIR wholesale: kitchen tools, insulated drinkware, pure titanium and Retro stainless tableware for retailers and distributors. Pricing on request, custom logo and packaging, catalog downloads.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
@@ -766,22 +766,23 @@
         .ws-how-item a:hover { color: var(--accent-primary-hover); }
 
         .ws-catalog { padding: 0 var(--sp-md) var(--sp-xl); background: var(--surface-0); }
-        .ws-catalog .cat-banner { display: grid; grid-template-columns: 1fr 1.2fr; max-width: 1400px; margin: 0 auto; background: var(--surface-2); }
-        .cat-banner-text { padding: var(--sp-lg) var(--sp-md); display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
-        .cat-banner h2 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 200; text-transform: lowercase; color: var(--text-primary); line-height: 1; letter-spacing: -0.01em; }
-        .cat-banner p { font-size: 1rem; line-height: 1.7; color: var(--text-primary); }
-        .cat-banner .retro-meta { margin: 0; }
-        .cat-banner .hero-cta { margin-top: 0.5rem; }
+        .ws-catalog .cat-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
+        .ws-catalog .cat-banner { display: flex; flex-direction: column; background: var(--surface-2); }
         .cat-banner-img { overflow: hidden; background: var(--surface-3); display: flex; align-items: center; justify-content: center; padding: var(--sp-md); }
         .cat-banner-img img { width: 100%; height: auto; display: block; box-shadow: 0 12px 32px rgba(16,24,32,0.18); }
-        .cat-banner > .ws-stripes { grid-column: 1 / -1; position: static; }
+        .cat-banner-text { padding: var(--sp-lg) var(--sp-md); display: flex; flex-direction: column; gap: 1rem; }
+        .cat-banner h2 { font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 200; text-transform: lowercase; color: var(--text-primary); line-height: 1; letter-spacing: -0.01em; }
+        .cat-banner p { font-size: 1rem; line-height: 1.7; color: var(--text-primary); }
+        .cat-banner .retro-meta { margin: 0; }
+        .cat-banner .hero-cta { margin-top: auto; }
+        .cat-banner > .ws-stripes { position: static; margin-top: auto; }
         .retro-meta { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: var(--sp-md); }
 
         @media (max-width: 1100px) {
             .ws-series .product-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-            .ws-series .product-grid, .ws-how-grid, .ws-catalog .cat-banner { grid-template-columns: 1fr; }
+            .ws-series .product-grid, .ws-how-grid, .ws-catalog .cat-grid { grid-template-columns: 1fr; }
             .cat-banner-img { order: -1; }
         }
     </style>
@@ -992,21 +993,41 @@
         </div>
     </section>
 
-    <!-- Catalog -->
+    <!-- Catalogs -->
     <section class="ws-catalog" id="catalog">
-        <div class="cat-banner">
-            <div class="cat-banner-text">
-                <h2>brand catalog</h2>
-                <p>The full Retro Collection with item codes, sizes and finishes. A good starting point for your first inquiry.</p>
-                <p class="retro-meta">PDF · 64 pages · 6.6 MB</p>
-                <div class="hero-cta">
-                    <a href="assets/catalog/WESHEIR-Retro-Catalog-2026.pdf" class="btn btn-primary" download><span>Download Catalog</span></a>
+        <div class="section-header">
+            <h2 class="section-title">Catalogs</h2>
+            <p class="section-subtitle">Item codes, sizes and finishes for your first inquiry</p>
+        </div>
+        <div class="cat-grid">
+            <div class="cat-banner">
+                <div class="cat-banner-img">
+                    <img src="assets/catalog/hk-catalog-cover.webp" alt="WESHEIR Home &amp; Kitchen Collection 2026 catalog cover" width="1000" height="706" loading="lazy">
                 </div>
+                <div class="cat-banner-text">
+                    <h2>home &amp; kitchen</h2>
+                    <p>Cookware, kitchen tools, food storage and pure titanium utensils, with item codes, sizes and materials.</p>
+                    <p class="retro-meta">PDF · 23 pages · 5.4 MB · 103 items</p>
+                    <div class="hero-cta">
+                        <a href="assets/catalog/WESHEIR-Home-Kitchen-Catalog-2026.pdf" class="btn btn-primary" download><span>Download Catalog</span></a>
+                    </div>
+                </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
             </div>
-            <div class="cat-banner-img">
-                <img src="assets/catalog/catalog-cover.webp" alt="WESHEIR Retro Collection catalog cover" width="1000" height="706" loading="lazy">
+            <div class="cat-banner">
+                <div class="cat-banner-img">
+                    <img src="assets/catalog/catalog-cover.webp" alt="WESHEIR Retro Collection catalog cover" width="1000" height="706" loading="lazy">
+                </div>
+                <div class="cat-banner-text">
+                    <h2>retro</h2>
+                    <p>The full Retro Collection of vintage-finish stainless tableware, with item codes, sizes and finishes.</p>
+                    <p class="retro-meta">PDF · 64 pages · 6.6 MB</p>
+                    <div class="hero-cta">
+                        <a href="assets/catalog/WESHEIR-Retro-Catalog-2026.pdf" class="btn btn-primary" download><span>Download Catalog</span></a>
+                    </div>
+                </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
             </div>
-            <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
         </div>
     </section>
 
