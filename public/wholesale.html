@@ -754,8 +754,16 @@
         .ws-hero { min-height: auto; padding-bottom: var(--sp-xl); }
         .ws-hero .hero-image { aspect-ratio: 4 / 5; }
 
-        .ws-series .product-grid { grid-template-columns: repeat(4, 1fr); gap: var(--sp-md); }
+        .ws-series .product-grid { grid-template-columns: repeat(5, 1fr); gap: var(--sp-md); }
         .ws-series .product-card-category { font-size: clamp(2.25rem, 3.6vw, 3.25rem); }
+
+        /* 5 张卡并排（桌面）：收紧内边距和标题字号，避免长标题被截断 */
+        @media (min-width: 1101px) {
+            .ws-series .product-card-category { font-size: clamp(1.5rem, 2vw, 2.25rem); padding: var(--sp-sm) 1.25rem 0.75rem; }
+            .ws-series .product-card-image { margin: 0 1.25rem; }
+            .ws-series .product-card-content { padding: 1.25rem; }
+            .ws-series .product-card-subtitle { font-size: 1rem; }
+        }
 
         .ws-how { padding: var(--sp-xl) var(--sp-md); background: var(--surface-0); }
         .ws-how-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
@@ -780,6 +788,7 @@
 
         @media (max-width: 1100px) {
             .ws-series .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .ws-series .product-grid > .product-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
         }
         @media (max-width: 768px) {
             .ws-series .product-grid, .ws-how-grid, .ws-catalog .cat-grid { grid-template-columns: 1fr; }
@@ -897,7 +906,7 @@
                     for retailers, distributors, restaurants and corporate buyers.
                     Mix across series, add your logo, and we will quote to your order.
                 </p>
-                <p class="retro-meta">Four series · Custom logo &amp; packaging · Pricing on request</p>
+                <p class="retro-meta">Four series + Essentials · Custom logo &amp; packaging · Pricing on request</p>
                 <div class="hero-cta">
                     <a href="mailto:info@wesheir.com?subject=Wholesale%20Inquiry" class="btn btn-primary"><span>Inquire</span></a>
                     <a href="#catalog" class="btn btn-secondary"><span>Download Catalog</span></a>
@@ -913,7 +922,7 @@
     <!-- Series -->
     <section class="product-lines ws-series" id="series">
         <div class="section-header">
-            <h2 class="section-title">Four Series</h2>
+            <h2 class="section-title">Four Series and Essentials</h2>
             <p class="section-subtitle">Order from one series or combine several in one shipment</p>
         </div>
         <div class="product-grid">
@@ -963,6 +972,22 @@
                     <p class="product-card-subtitle">Vintage-finish stainless tableware</p>
                     <p class="product-card-description">Plates, bowls, trays, cutlery and bar tools for restaurants, cafés and lifestyle retail.</p>
                     <span class="product-card-spec">Stainless Steel</span>
+                </div>
+                <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
+            </a>
+            <a href="/essentials" class="product-card">
+                <h3 class="product-card-category">essentials</h3>
+                <div class="product-card-image">
+                    <img src="assets/img/card-essentials.webp" alt="Essentials everyday housewares: strainer, glass jars, cutting board and travel mug" loading="lazy">
+                </div>
+                <div class="product-card-content">
+                    <span class="product-card-tag">Distribution Partners</span>
+                    <p class="product-card-subtitle">Everyday housewares for wholesale</p>
+                    <p class="product-card-description">
+                        Kitchen tools, food storage, cutting boards and drinkware from our partner brands.
+                        31 items, distributed by WESHEIR.
+                    </p>
+                    <span class="product-card-spec">Wholesale</span>
                 </div>
                 <span class="ws-stripes ws-stripes--sm" aria-hidden="true"></span>
             </a>
@@ -1057,6 +1082,7 @@
                     <li><a href="/#products">Drinkware</a></li>
                     <li><a href="/titanium">Titanium</a></li>
                     <li><a href="/retro">Retro</a></li>
+                    <li><a href="/essentials">Essentials</a></li>
                 </ul>
             </div>
             <div class="footer-col">
